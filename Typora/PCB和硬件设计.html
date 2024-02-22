@@ -1,0 +1,734 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>PCB和硬件设计_基于立创EDA</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p><strong><span>版权所有，请勿转载。--Demoland 陈先柱</span></strong></p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n4"><a class="md-toc-inner" href="#pcb设计基于立创eda专业版">PCB设计_基于立创EDA专业版  </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n5"><a class="md-toc-inner" href="#一pcb设计基础">一：PCB设计基础</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n6"><a class="md-toc-inner" href="#1-新建工程">1. 新建工程</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n9"><a class="md-toc-inner" href="#2-元器件搜索">2. 元器件搜索</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n17"><a class="md-toc-inner" href="#3封装">3.封装</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n25"><a class="md-toc-inner" href="#4-原理图设计">4. 原理图设计</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n43"><a class="md-toc-inner" href="#5-pcb设计">5. PCB设计</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n67"><a class="md-toc-inner" href="#附5-导入文件">附5. 导入文件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n68"><a class="md-toc-inner" href="#51-导入图片">5.1 导入图片</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n69"><a class="md-toc-inner" href="#511-原理图中导入图片">5.1.1 原理图中导入图片</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n83"><a class="md-toc-inner" href="#512-pcb中导入图片">5.1.2 PCB中导入图片</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n104"><a class="md-toc-inner" href="#52-导入dxf">5.2 导入DXF</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n126"><a class="md-toc-inner" href="#53-导入ad文件">5.3 导入AD文件</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n127"><a class="md-toc-inner" href="#注意事项">※注意事项</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n131"><a class="md-toc-inner" href="#导入步骤">※导入步骤</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n132"><a class="md-toc-inner" href="#1ad文件导出为ascii文件格式">1.AD文件导出为ASCII文件格式</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n152"><a class="md-toc-inner" href="#导入alitum库文件">导入Alitum库文件</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n156"><a class="md-toc-inner" href="#批量转换ascii文件">批量转换ASCII文件</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n162"><a class="md-toc-inner" href="#常见问题">常见问题</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n338"><a class="md-toc-inner" href="#附6-导出文件">附6. 导出文件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n339"><a class="md-toc-inner" href="#61-导出bom表">6.1 导出BOM表</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n362"><a class="md-toc-inner" href="#62-导出原理图">6.2 导出原理图</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n363"><a class="md-toc-inner" href="#621-导出原理图">6.2.1 导出原理图</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n384"><a class="md-toc-inner" href="#622-打印原理图">6.2.2 打印原理图</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n391"><a class="md-toc-inner" href="#63-导出gerber">6.3 导出Gerber</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n392"><a class="md-toc-inner" href="#631-生成gerber">6.3.1 生成Gerber</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n399"><a class="md-toc-inner" href="#632-gerber文件说明">6.3.2 Gerber文件说明</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n509"><a class="md-toc-inner" href="#二pcb设计进阶">二：PCB设计进阶</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n510"><a class="md-toc-inner" href="#21-边框">2.1 边框</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n523"><a class="md-toc-inner" href="#22-实心填充">2.2 实心填充</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n552"><a class="md-toc-inner" href="#23-阵列">2.3 阵列</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n555"><a class="md-toc-inner" href="#231-阵列副本">2.3.1 阵列副本</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n562"><a class="md-toc-inner" href="#232-阵列分布">2.3.2 阵列分布</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n597"><a class="md-toc-inner" href="#24-拼板">2.4 拼板</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n598"><a class="md-toc-inner" href="#241-自带拼板">2.4.1 自带拼板</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n629"><a class="md-toc-inner" href="#242-手动拼板">2.4.2 手动拼板</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n648"><a class="md-toc-inner" href="#25-pcb板层layer）">2.5 PCB板层（Layer）</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n657"><a class="md-toc-inner" href="#26-过孔">2.6 过孔</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n658"><a class="md-toc-inner" href="#261-过孔的类型">2.6.1 过孔的类型</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n665"><a class="md-toc-inner" href="#262-过孔的设计规则">2.6.2 过孔的设计规则</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n674"><a class="md-toc-inner" href="#263-普通pcb中的过孔">2.6.3 普通PCB中的过孔</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n677"><a class="md-toc-inner" href="#264-高速pcb中的过孔">2.6.4 高速PCB中的过孔</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n693"><a class="md-toc-inner" href="#三-pcb设计高阶">三： PCB设计高阶</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n694"><a class="md-toc-inner" href="#31-十条重要的布线原则">3.1 ※※※十条重要的布线原则</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n735"><a class="md-toc-inner" href="#32-高速信号">3.2 高速信号</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n740"><a class="md-toc-inner" href="#33-高频信号">3.3 高频信号</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n743"><a class="md-toc-inner" href="#33-阻抗匹配">3.3 阻抗匹配</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n774"><a class="md-toc-inner" href="#四四层板设计">四：四层板设计</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n775"><a class="md-toc-inner" href="#1-板层知识">1. 板层知识</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n789"><a class="md-toc-inner" href="#2-填充功能">2. 填充功能</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n807"><a class="md-toc-inner" href="#2-芯片手册">2. 芯片手册</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n812"><a class="md-toc-inner" href="#3-设计">3. 设计</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n866"><a class="md-toc-inner" href="#4-芯片知识">4. 芯片知识</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n873"><a class="md-toc-inner" href="#5-传输速度测试软件">5. 传输速度测试软件</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n878"><a class="md-toc-inner" href="#五典型电路设计">五：典型电路设计</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n879"><a class="md-toc-inner" href="#1-晶振电路">1. 晶振电路</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n894"><a class="md-toc-inner" href="#2-io信号线">2. IO信号线</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n903"><a class="md-toc-inner" href="#3-电源线">3. 电源线</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n914"><a class="md-toc-inner" href="#4-分压电路设计">4. 分压电路设计</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n919"><a class="md-toc-inner" href="#5-静电保护电路设计">5. 静电保护电路设计</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n923"><a class="md-toc-inner" href="#6-降压稳压电路设计">6. 降压稳压电路设计</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n929"><a class="md-toc-inner" href="#附一仿真设计立创eda标准版">附一：仿真设计(立创EDA标准版)</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n933"><a class="md-toc-inner" href="#1-仿真界面介绍">1. 仿真界面介绍 </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n952"><a class="md-toc-inner" href="#2-仿真例程">2. 仿真例程 </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n954"><a class="md-toc-inner" href="#21-添加器件">2.1 添加器件 </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n965"><a class="md-toc-inner" href="#22-仿真分析">2.2 仿真分析 </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n977"><a class="md-toc-inner" href="#23-仿真图转pcb">2.3 仿真图转PCB </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n989"><a class="md-toc-inner" href="#附二创建符号库">附二：创建符号库</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n990"><a class="md-toc-inner" href="#1-创建符号库">1. 创建符号库</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1000"><a class="md-toc-inner" href="#11-新建符号库">1.1 新建符号库：</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1004"><a class="md-toc-inner" href="#12-绘制图形符号">1.2 绘制图形符号</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1018"><a class="md-toc-inner" href="#13-编辑引脚">1.3 编辑引脚</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1027"><a class="md-toc-inner" href="#14-修改细节">1.4 修改细节</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1029"><a class="md-toc-inner" href="#15-设置属性">1.5 设置属性</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1032"><a class="md-toc-inner" href="#16-设置原点">1.6 设置原点</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1037"><a class="md-toc-inner" href="#17-保存符号库">1.7 保存符号库</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1049"><a class="md-toc-inner" href="#2-创建符号库子库">2. 创建符号库子库</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1071"><a class="md-toc-inner" href="#3-符号向导">3. 符号向导</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1075"><a class="md-toc-inner" href="#31-基础功能">3.1 基础功能</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1085"><a class="md-toc-inner" href="#32-高级功能">3.2 高级功能</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1096"><a class="md-toc-inner" href="#4-符号属性">4. 符号属性</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1097"><a class="md-toc-inner" href="#41-引脚属性">4.1 引脚属性</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1101"><a class="md-toc-inner" href="#42-管脚方向">4.2 管脚方向</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1107"><a class="md-toc-inner" href="#43-管脚属性">4.3 管脚属性</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1157"><a class="md-toc-inner" href="#44-符号自定义属性">4.4 符号自定义属性</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n1179"><a class="md-toc-inner" href="#45-符号值作为名称显示在原理图">4.5 符号值作为名称显示在原理图</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1191"><a class="md-toc-inner" href="#5-编辑符号">5. 编辑符号</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1192"><a class="md-toc-inner" href="#51-个人库文件">5.1 个人库文件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1203"><a class="md-toc-inner" href="#52-编辑其他库文件">5.2 编辑其他库文件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1212"><a class="md-toc-inner" href="#53-编辑在原理图中的库">5.3 编辑在原理图中的库</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1216"><a class="md-toc-inner" href="#附三创建封装库">附三：创建封装库</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1217"><a class="md-toc-inner" href="#1-创建封装库">1. 创建封装库</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1220"><a class="md-toc-inner" href="#11-封装库工具">1.1 封装库工具</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1227"><a class="md-toc-inner" href="#12-创建封装库">1.2 创建封装库</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1232"><a class="md-toc-inner" href="#13-绘制步骤">1.3 绘制步骤</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1291"><a class="md-toc-inner" href="#14-焊盘属性">1.4 焊盘属性</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1313"><a class="md-toc-inner" href="#2-封装向导">2. 封装向导</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1339"><a class="md-toc-inner" href="#3-编辑封装">3. 编辑封装</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1340"><a class="md-toc-inner" href="#31-在元件库里面打开编辑">3.1 在元件库里面打开编辑</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1348"><a class="md-toc-inner" href="#32-在pcb里面编辑">3.2 在PCB里面编辑</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1352"><a class="md-toc-inner" href="#4-智能尺寸">4. 智能尺寸</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1377"><a class="md-toc-inner" href="#5-导入3d模型">5. 导入3D模型</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1378"><a class="md-toc-inner" href="#51-导入3d文件">5.1 导入3D文件</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n1407"><a class="md-toc-inner" href="#52-编辑3d库">5.2 编辑3D库</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1414"><a class="md-toc-inner" href="#6-封装命名参考">6. 封装命名参考</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n1465"><a class="md-toc-inner" href="#硬件电路设计">硬件电路设计</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1469"><a class="md-toc-inner" href="#电容">电容</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1480"><a class="md-toc-inner" href="#复位电路设计">复位电路设计</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1481"><a class="md-toc-inner" href="#低电平复位">低电平复位</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1485"><a class="md-toc-inner" href="#高电平复位">高电平复位</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1487"><a class="md-toc-inner" href="#电池电量检测">电池电量检测</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1492"><a class="md-toc-inner" href="#按键检测电路设计">按键检测电路设计</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1499"><a class="md-toc-inner" href="#nmos开关电路">NMOS开关电路</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1501"><a class="md-toc-inner" href="#数据传输协议电路设计">数据传输协议电路设计</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1502"><a class="md-toc-inner" href="#iic电路设计">IIC电路设计</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1505"><a class="md-toc-inner" href="#io扩展芯片">IO扩展芯片</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1506"><a class="md-toc-inner" href="#mcp23017mcp23s17">MCP23017/MCP23S17</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n1523"><a class="md-toc-inner" href="#附嘉立创生产极限工艺说明">附：嘉立创生产极限工艺说明</a></span></p></div><p>&nbsp;</p><h1 id='pcb设计基于立创eda专业版'><span>PCB设计_基于立创EDA专业版  </span></h1><h2 id='一pcb设计基础'><span>一：PCB设计基础</span></h2><h3 id='1-新建工程'><span>1. 新建工程</span></h3><p><span>文件-新建工程-填写工程名、路径-确认。</span></p><p><span>一个工程里可包含多个板（board），每个板中可分别包含对应的原理图（schematic）和 PCB。</span></p><h3 id='2-元器件搜索'><span>2. 元器件搜索</span></h3><ul><li><span>电容(C)、电阻(R)、排针(M)、排母(F)、LED灯等元件可以使用</span><strong><span>左侧常用库</span></strong></li><li><strong><span>shift+F 调出元件库（立创商城和嘉立创EDA）</span></strong><span>。</span></li><li><span>选型时根据元器件</span><strong><span>名称、封装、电气特性、价格</span></strong><span>来选。</span></li></ul><h3 id='3封装'><span>3.封装</span></h3><ul><li><p><span>芯片封装有直插式和贴片的。</span></p><p><span>直插就是引脚穿过PCB板固定的，贴片就是在PCB表面固定的。</span></p></li><li><p><span>常见电容、电阻、LED封装有0805 / 0603 / 0402 / 0201 / 01005等。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240202120810134.png" referrerpolicy="no-referrer" alt="image-20240202120810134"></p></li></ul><h3 id='4-原理图设计'><span>4. 原理图设计</span></h3><ul><li><span>※原理图的元器件有</span><strong><span>位号和名称</span></strong><span>，</span><strong><span>位号必须唯一、不能重复</span></strong><span>（R1、R2、C1、C2）、</span><strong><span>名称</span></strong><span>（如LED_RED）可</span><strong><span>随意</span></strong><span>填写。</span></li><li><strong><span>分配位号</span></strong><span>功能，</span><strong><span>设计-&gt;分配位号</span></strong><span>。给未分配位号的元件自动编号。</span><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240110163410117.png" alt="image-20240110163410117" style="zoom:50%;" /></li><li><span>原理图的</span><strong><span>设计规则</span></strong><span>（默认25条）。根据需求自行更改选择，如命名规则、导线mil值、焊盘最小间距等等。</span></li><li><span>原理图可在右侧更改</span><strong><span>图纸规格</span></strong><span>（A3、A4），可填写</span><strong><span>图纸属性</span></strong><span>（公司、时间），可更改</span><strong><span>图纸模板</span></strong><span>。</span></li><li><span>原理图的</span><strong><span>导线</span></strong><span>可以</span><strong><span>加粗</span></strong><span>以区分（如电源）特殊线路，原理图的</span><strong><span>折线、引脚名</span></strong><span>可以</span><strong><span>更改颜色</span></strong><span>。</span></li><li><span>原理图的未使用引脚需要打上</span><strong><span>未连接标志X</span></strong><span>。</span></li><li><span>原理图可</span><strong><span>灵活更改栅格大小</span></strong><span>（0.1主要、0.05），以让元器件布局标准、舒适。</span></li><li><span>原理图设计完成后</span><strong><span>先检查DRC</span></strong><span>，无误后使用</span><strong><span>原理图转PCB</span></strong><span>功能。</span></li></ul><h3 id='5-pcb设计'><span>5. PCB设计</span></h3><ul><li><strong><span>布局传递</span></strong><span>功能，在</span><strong><span>布置PCB元件位置</span></strong><span>时，</span><strong><span>根据原理图中不同功能区块元件</span></strong><span>（如供电、下载接口、降压部分、芯片主电路）的布局传递。使用时，在</span><strong><span>原理图界面框选对应区块元器件</span></strong><span>，随后</span><strong><span>选择布局传递</span></strong><span>。</span></li><li><span>PCB设计要对</span><strong><span>边框倒圆角</span></strong><span>（如1.5mm），要做</span><strong><span>定位孔</span></strong><span>（如1.5mm），丝印也可以用来定位标记（如OLED所占空间，画一个矩形）。</span></li><li><span>界面上方可以更改mil或mm，</span><strong><span>布线时按TAB可以更改线宽</span></strong><span>。</span></li><li><strong><span>布线过程中，按V打一个过孔，会启动切换图层继续布线；</span></strong><span>过孔处可以连直角线。</span></li><li><span>丝印放置规范：竖放从上往下读、横放从左到右读。①选择一个丝印，右键查找②直接框选，</span><strong><span>可以统一更改其属性</span></strong><span>。</span></li><li><span>数据线10mil，一般根据芯片焊盘大小选取数据线宽度。不影响的情况下，电源线尽量越粗越好，如20、30mil。</span></li><li><strong><span>高速信号线的优先级最高</span></strong><span>，</span><strong><span>一般先布局电源线，再布局普通信号线</span></strong><span>。低速信号线顶层和底层的线交错、一般没什么问题。</span></li><li><strong><span>铺铜</span></strong><span>：</span><strong><span>分别在顶层和底层铺铜，以连接地线</span></strong><span>。在顶部选择铺铜-矩形-GND-框选。</span><strong><span>处理孤岛：</span></strong><span>一：若顶层或底层有一块区域无法铺铜（也是孤岛），可通过</span><strong><span>放置几个过孔来连接顶层和底层铺铜</span></strong><span>。二：删除单独存在的铺铜孤岛（若存在），使用禁止区域将不规则铺铜删掉。</span></li><li><span>在 PCB 布线中还可以选择</span><strong><span>移除回路</span></strong><span>的功能，如果</span><strong><span>两个焊盘直接需 要走两条或两条以上的路径时</span></strong><span>则需要将右侧画布属性中的“移除回路” 改为“否”就可以进行绘制多条通道了。</span></li><li><span>点击2D、3D可以进行预览。PCB设计完成后，</span><strong><span>检查DRC</span></strong><span>，进行对应错误的修改。</span></li></ul><p><span>若出现GND未连接，但又找不到时，可以点击报错中蓝色GND字体，鼠标移到原理图上，按delete删除即可。</span></p><p>&nbsp;</p><h3 id='附5-导入文件'><span>附5. 导入文件</span></h3><h4 id='51-导入图片'><span>5.1 导入图片</span></h4><h5 id='511-原理图中导入图片'><span>5.1.1 原理图中导入图片</span></h5><p><strong><span>一：本地选择图片上传</span></strong><span>。</span></p><p><strong><span>①左上角导入</span></strong><span> </span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226143458430.png" alt="image-20231226143458430" style="zoom:50%;" /></p><p><strong><span>编辑属性：</span></strong><span>点击图片在右边属性面板可以编辑它的属性，或者右键打开属性弹窗编辑它的属性。</span></p><p>&nbsp;</p><p><span>二：通过</span><strong><span>超链接插入图片</span></strong><span>，选择路径时直接输入图片网址。插入的超链接必须是以图片格式后缀名(. PNG；. JPG；. SVG)结尾，如：</span><a href='http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/555_Pinout.svg/220px-555_Pinout.svg.png' target='_blank' class='url'>http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/555_Pinout.svg/220px-555_Pinout.svg.png</a></p><p><span>之后你可以看到图片如下：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-043_Introduction_ImageURL.png" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>注意</span></strong><span>：</span></p><ul><li><em><span>目前嘉立创EDA不能为你上传的图片创建图库，若使用超链接上传图片请使用长期有效的图床。</span></em></li></ul><p>&nbsp;</p><h5 id='512-pcb中导入图片'><span>5.1.2 PCB中导入图片</span></h5><p><span>①在PCB和PCB库画布下，通过该图标插入图片。你可以很方便插入丝印logo等标识图案。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20200709211128776.png" referrerpolicy="no-referrer" alt="image-20200709211128776"></p><p><span>②现在插入一个二维码图片。嘉立创EDA支持 </span><code>JPG</code><span> , </span><code>BMP</code><span> , </span><code>PNG</code><span> , </span><code>GIF</code><span> , 和 </span><code>SVG</code><span> 格式的图片。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20200709211417189.png" referrerpolicy="no-referrer" alt="image-20200709211417189"></p><p><strong><span>③图片编辑：</span></strong></p><ul><li><span>预览图片：</span><strong><span>左边为原图</span></strong><span>预览，</span><strong><span>右边为调整后的图片</span></strong><span>效果预览。</span></li><li><span>颜色容差：数值越大，图像会损失越大。</span></li><li><span>简化级别：数值越大，图像边沿会更圆润。</span></li><li><span>图像反转：选择后，原本高亮区域会被挖图。</span></li><li><span>图片尺寸：设置你要插入的大小。</span></li></ul><p><strong><span>注：图片会插入在当前编辑的层，如果需要换层或修改其他属性，可以点击它后在属性处修改。</span></strong></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20200709211348067.png" referrerpolicy="no-referrer" alt="image-20200709211348067"></p><p>&nbsp;</p><p>&nbsp;</p><h4 id='52-导入dxf'><span>5.2 导入DXF</span></h4><p><span>如果你的PCB需要设计极其复杂的边框 或 美观的图案，你需要把素材保存为DXF格式。随后可以导入DXF文件。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20200709210605846.png" referrerpolicy="no-referrer" alt="image-20200709210605846"></p><p><span>选择了DXF文件后，会显现DXF文件预览：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-153_Import_DXF_ImportDialog.png" referrerpolicy="no-referrer" alt="img"></p><p><span>嘉立创EDA提供四种单位转换：英寸inch、厘米cm、毫米mm、密耳mil；</span></p><p><span>在</span><strong><span>原理图中</span></strong><span>，</span><strong><span>DXF的长度设置为像素</span></strong><span>，比如长度 100 的 DXF，导入后长度为 100px。</span></p><p><strong><span>导入到 PCB、PCB 模块、PCB 库 并 可选择需导入的层</span></strong><span>：顶层、底层、顶层丝印、底层丝印、边框、文档。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-154_Import_DXF_Imported.png" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>注意</span></strong><span>：</span></p><ul><li><em><span>导入的DXF文件必须以 .dxf 为扩展名。</span></em></li><li><em><span>当你选择导入的层是边框时，圆圈会被转换为过孔。</span></em></li><li><em><span>会有一些细节项目无法完美支持，比如螺旋线，镜像等。</span></em></li><li><em><span>不建议直接导入到信号层，因为要计算信号连接关系，导入信号层可能会卡顿。</span></em></li><li><em><span>如果导入的DXF有经过组合请先解散组合再导入。</span></em></li></ul><p>&nbsp;</p><h4 id='53-导入ad文件'><span>5.3 导入AD文件</span></h4><h5 id='注意事项'><span>※注意事项</span></h5><p><span>当你选择导入Altium Designer时，请务必确认导入的文件内容。</span></p><p><strong><span>1、因格式设计的差异，导入后请仔细检查！嘉立创EDA并不能确保导入后 100% 匹配！</span></strong></p><p><strong><span>2、内电层导入后需要仔细检查导线，内电层无法保持原有的网络，必须重新设置！</span></strong></p><h5 id='导入步骤'><span>※导入步骤</span></h5><h5 id='1ad文件导出为ascii文件格式'><span>1.AD文件导出为ASCII文件格式</span></h5><p><span>Altium另存为ASCII格式：</span></p><ul><li><span>使用Altium Designer打开原理图/PCB文件，并右键导出ASCII文件。</span></li><li><span>文档类型下拉选择ASCII格式: PCB ASCII File(</span><em><span>.PcbDoc) 或 Advanced Schematic ascii(</span></em><span>.SchDoc)</span></li></ul><p><strong><span>2.立创EDA导入</span></strong><span>。标准版：你可以在 </span><strong><span>文件 -&gt; 打开</span></strong><span> 。专业版：</span><strong><span>文件 -&gt; 导入</span></strong><span>。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20200709211604473.png" referrerpolicy="no-referrer" alt="image-20200709211604473"></p><ul><li></li></ul><p>&nbsp;</p><p><span>1、选择 </span><strong><span>Altium 文件</span></strong><span>，</span><strong><span>必须是以ASCII格式另存为的原理图文件和PCB文件</span></strong><span>。具体下节见生成ASCII文件。</span></p><p><span>2、根据自己的需要选择导入文件还是提取库。</span></p><p><span>3、如果同一个工程的原理图和PCB都需要导入，请先导入 PCB 并选择提取封装，再导入PCB和原理图，导入原理图时会自动根据前面提取的封装标题进行关联。有些封装标题因为字符编码的原因无法识别会被转为下划线。</span></p><p><span>4、如果导入后，从原理图更新到PCB元件没有对应，则可以在：设计菜单 - 重置元件唯一ID，进行元件ID重置，原理图和PCB都需要。此时两边的元件对应关系修正完成。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/Reset-Component-ID-20210518204146.png" referrerpolicy="no-referrer" alt="picture 5"></p><p><span>导入Altium Designer原理图文件，PCB文件效果已经非常出色，如下图：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-149_Import_AltiumDesignerSchemaitc.png" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h5 id='导入alitum库文件'><span>导入Alitum库文件</span></h5><p><span>由于Altium Designer原理图库文件，封装库文件并不支持保存为 ASCII格式，所以</span><strong><span>嘉立创EDA不支持直接导入Altium Designer的库文件</span></strong><span>。</span></p><p><span>你可以将需要的导入的库文件全部放在原理图或PCB中，再将原理图和PCB另存为ASCII格式，再导入时选择“提取库文件”即可将库文件全部提取。提取后可以直接放置在相应的画布上，也可以直接添加到个人库中。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Import-Altium-Designer-20200726041200.png" referrerpolicy="no-referrer" alt="picture 2"></p><h5 id='批量转换ascii文件'><span>批量转换ASCII文件</span></h5><p><span>如何批量导入 Altium Designer 已有的原理图和PCB和库文件：</span></p><p><span>1、下载网友 CZJ 分享的一个 Altium 脚本。</span><a href='http://club.szlcsc.com/article/details_54184_1.html' target='_blank' class='url'>http://club.szlcsc.com/article/details_54184_1.html</a></p><p><span>2、根据脚本的教程提取当前安装好的库文件到原理图或者 PCB.</span></p><p><span>3、把生成的原理图或 PCB 文件压缩到 zip 压缩包后导入，并提取库。优先提取封装库后再提取符号库。</span></p><p><span>4、导入后在“左侧元件库 - 符号/封装 - 工作区”处找到提取的库。</span></p><h5 id='常见问题'><span>常见问题</span></h5><p><span>格式转换的前后差异如下表：</span></p><p><span>原理图/元件库：</span></p><figure><table><thead><tr><th style='text-align:left;' ><span>图元/图层</span></th><th style='text-align:left;' ><span>导入后</span></th><th style='text-align:left;' ><span>备注</span></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>图片</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>AD的图片存储的是本地文件路径，ASCII文件里面不包含图片</span></td></tr><tr><td style='text-align:left;' ><span>离图连接器</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版不支持离图连接器</span></td></tr><tr><td style='text-align:left;' ><span>页面符</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版不支持页面符</span></td></tr><tr><td style='text-align:left;' ><span>图纸入口</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版不支持图纸入口</span></td></tr><tr><td style='text-align:left;' ><span>器件页面符</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版不支持器件页面符</span></td></tr><tr><td style='text-align:left;' ><span>线束</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版不支持线束图元</span></td></tr><tr><td style='text-align:left;' ><span>指示</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版支持No ERC标号，不支持其他指示图元(差分对、参数设置、覆盖区、编译屏蔽)</span></td></tr><tr><td style='text-align:left;' ><span>文本/文本框/注释</span></td><td style='text-align:left;' ><span>导入为普通文本</span></td><td style='text-align:left;' ><span>标准版不支持注释，如果操作系统没有安装对应的字体，文本导入后会优先使用原来的字体，找不到时会使用默认字体(浏览器决定)，因文本的字体不同位置可能会有轻微偏移；在AD文件另存为ASCII时，中文可能会乱码，导入后乱码的字符会自动转为下划线</span></td></tr><tr><td style='text-align:left;' ><span>元件位号</span></td><td style='text-align:left;' ><span>多部件位号U1A，U1B导入后为U1.1, U1.2</span></td><td style='text-align:left;' ><span>标准版不支持AD那种多部件的位号方式</span></td></tr><tr><td style='text-align:left;' ><span>引脚类型</span></td><td style='text-align:left;' ><span>不支持的类型统一转为未定义类型</span></td><td style='text-align:left;' ><span>标准版暂只支持四种引脚电气类型</span></td></tr><tr><td style='text-align:left;' ><span>隐藏引脚</span></td><td style='text-align:left;' ><span>导入后显示</span></td><td style='text-align:left;' ><span>标准版不支持隐藏引脚</span></td></tr><tr><td style='text-align:left;' ><span>元件封装</span></td><td style='text-align:left;' ><span>导入后会生成“原封装1，原封装2等”</span></td><td style='text-align:left;' ><span>标准版不是根据封装名关联封装，是根据封装的uuid，所以导入时会把原来关联的多个封装名作为普通属性添加，如果导入的原理图和PCB一起压缩导入时，会自动关联封装</span></td></tr><tr><td style='text-align:left;' ><span>主题样式</span></td><td style='text-align:left;' ><span>导入对话框默认使用源文件默认主题</span></td><td style='text-align:left;' ><span>导入原文件主题</span></td></tr><tr><td style='text-align:left;' ><span>IEEE符号</span></td><td style='text-align:left;' ><span>IEEE符号暂未支持导入</span></td><td style='text-align:left;' ><span>AD的IEEE符号，暂不支持导入</span></td></tr></tbody></table></figure><p><span>PCB/封装库：</span></p><figure><table><thead><tr><th style='text-align:left;' ><span>图元/图层</span></th><th style='text-align:left;' ><span>导入后</span></th><th style='text-align:left;' ><span>备注</span></th></tr></thead><tbody><tr><td style='text-align:left;' ><span>铺铜</span></td><td style='text-align:left;' ><span>导入后会重新铺铜</span></td><td style='text-align:left;' ><span>因为铺铜逻辑不同，PCB的铺铜填充也会有轻微差异，不支持直接导入铺铜填充，会自动重建铺铜。比如热焊生成方式，热焊宽度，热焊是否多出一部分，可能会产生飞线；横向和纵向铺铜会转为网格铺铜；AD网格铺铜会给过孔单独加热焊连接，标准版不支持，可能部分过孔在重建铺铜后没有和铺铜连上(网格比较大的时候)；标准版不支持非信号层的铺铜，所以AD其他层的铺铜会转为顶层铺铜</span></td></tr><tr><td style='text-align:left;' ><span>设计规则</span></td><td style='text-align:left;' ><span>部分设计规则不支持导入</span></td><td style='text-align:left;' ><span>比如自定义高级设计规则，标准版不支持的设计规则，常见的安全间距等支持，导入后的PCB文件规则相关参数需要自行调整</span></td></tr><tr><td style='text-align:left;' ><span>文本/文本框</span></td><td style='text-align:left;' ><span>字体变化和位置会有轻微偏移</span></td><td style='text-align:left;' ><span>文本导入后会使用默认字体(中文使用谷歌字体)，因文本的字体不同位置可能会有轻微偏移；如果是相同字体，因为字体显示的逻辑不同，无法完全和原文件一致，会有位置偏移和大小差异；笔画和条形码均会转为普通文本</span></td></tr><tr><td style='text-align:left;' ><span>内电层</span></td><td style='text-align:left;' ><span>导入后区块的网络可能改变</span></td><td style='text-align:left;' ><span>AD和标准版的内电层实现方式不同，当有多个内电区块的时候，其区块的网络可能无法完全保持一致，需要仔细检查；导入后内电层会重建区块，内电层区块划分可能也有差异</span></td></tr><tr><td style='text-align:left;' ><span>keepout层</span></td><td style='text-align:left;' ><span>默认转为板框层</span></td><td style='text-align:left;' ><span>在导入弹窗支持设置板框来源是keepout层还是机械层1；部分板子内部的keepout闭合线条，根据作用对象，会自动转为对应的禁止区域；非闭合的keepout图元会导入到机械层，标准版不支持独立线条等作为禁止区域</span></td></tr><tr><td style='text-align:left;' ><span>板子形状 board shape</span></td><td style='text-align:left;' ><span>默认转到文档层</span></td><td style='text-align:left;' ><span>标准版没有board shape但是有边框层，由于大部分人使用keepout和机械层1作为板框，所以board shape转到机械层</span></td></tr><tr><td style='text-align:left;' ><span>定义板切割 Board Cutout</span></td><td style='text-align:left;' ><span>转为槽孔</span></td><td style='text-align:left;' ><span>该功能对应标准版的实心填充槽孔类型</span></td></tr><tr><td style='text-align:left;' ><span>铺铜挖空 Polygon Cutout</span></td><td style='text-align:left;' ><span>转为实心填充无填充类型</span></td><td style='text-align:left;' ><span>转为实心填充的无填充类型</span></td></tr><tr><td style='text-align:left;' ><span>机械层</span></td><td style='text-align:left;' ><span>机械层1默认转到机械层，其他机械层转到文档层</span></td><td style='text-align:left;' ><span>标准版不支持其他机械层的功能</span></td></tr><tr><td style='text-align:left;' ><span>飞线</span></td><td style='text-align:left;' ><span>导入后出现飞线</span></td><td style='text-align:left;' ><span>可能是导入后重建铺铜导致有些地方断开了连接，如无网络图元、热焊因DRC间距不能生成等</span></td></tr><tr><td style='text-align:left;' ><span>Room</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版不支持Room图元</span></td></tr><tr><td style='text-align:left;' ><span>层堆栈设置</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版不支持层堆栈设置</span></td></tr><tr><td style='text-align:left;' ><span>3D体/3D模型库</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版的3D绑定设计与AD不同</span></td></tr><tr><td style='text-align:left;' ><span>钻孔表</span></td><td style='text-align:left;' ><span>导入到机械层</span></td><td style='text-align:left;' ><span>标准版不支持钻孔图层</span></td></tr><tr><td style='text-align:left;' ><span>图元阻焊助焊扩展</span></td><td style='text-align:left;' ><span>仅焊盘过孔的支持导入</span></td><td style='text-align:left;' ><span>其他的图元，如导线，圆弧等图元的阻焊助焊扩展不支持导入</span></td></tr><tr><td style='text-align:left;' ><span>焊盘</span></td><td style='text-align:left;' ><span>导入到底层或顶层或多层</span></td><td style='text-align:left;' ><span>标准版的焊盘不支持设置在任意层，不支持的层的焊盘会转为对应层的填充区域；矩形钻孔不支持，会转为槽型钻孔</span></td></tr><tr><td style='text-align:left;' ><span>元件/封装</span></td><td style='text-align:left;' ><span>导入到顶层或底层</span></td><td style='text-align:left;' ><span>如果在AD里面绘制的封装属性在顶层，但整体在底层(属于错误数据)，导入后会自动修正层属性在底层</span></td></tr><tr><td style='text-align:left;' ><span>坐标</span></td><td style='text-align:left;' ><span>导入为文本和线条</span></td><td style='text-align:left;' ><span>标准版不支持坐标图元</span></td></tr><tr><td style='text-align:left;' ><span>尺寸</span></td><td style='text-align:left;' ><span>部分支持导入</span></td><td style='text-align:left;' ><span>支持导入的部分导入为文本和线条</span></td></tr><tr><td style='text-align:left;' ><span>来自文件的对象</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>这种调用文件外部的对象，不包含在文件中，不支持导入</span></td></tr><tr><td style='text-align:left;' ><span>工作向导</span></td><td style='text-align:left;' ><span>不支持导入</span></td><td style='text-align:left;' ><span>标准版不支持这个图元</span></td></tr></tbody></table></figure><p><span>其他常见问题：</span></p><p><span>1、导入AD原理图出现中文乱码</span>
+<span>在 AD17 以下的版本，另存为的 ASCII 文件编码可能是 GBK2312，需要把 ASCII 文件的编码由 GBK2312 转为 UTF-8。可以使用文本编辑器另存为 UTF-8 编码的文件。</span>
+<span>方法：</span></p><ul><li><span>1、用 AD17 另存为 ASCII 文件，其默认是 UTF-8 编码</span></li><li><span>2、或者用系统的记事本打开 ASCII 文件，另存为时选择 UTF-8 编码。其他文本编辑器也有相应的编码转换功能。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/Import-Altium-Designer-20200726041055.png" referrerpolicy="no-referrer" alt="picture 1"></li></ul><p><span>2、导入AD文件后存在导线和器件引脚没有对齐格点，或者引脚偏了</span></p><ul><li><span>先在 Altium Designer 设置原理图的单位为英制mil，在：查看菜单 - 切换单位</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/Import-Altium-Designer-20220309160526.png" referrerpolicy="no-referrer" alt="图 7"></li><li><span>然后画布右键菜单或系统设置：选项 - 网格 - 设置显示网格，电气网格，吸附网格为 100mil，切换网格为 100mil</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/Import-Altium-Designer-20220309160614.png" referrerpolicy="no-referrer" alt="图 8">
+<img src="./PCB和硬件设计_基于立创EDA.assets/Import-Altium-Designer-20220309160717.png" referrerpolicy="no-referrer" alt="图 9"></li><li><span>全选原理图 CTRL + A ，使用编辑菜单：编辑 - 对齐 - 对齐网格功能。检查断开或者不对的地方修正。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/Import-Altium-Designer-20220309160807.png" referrerpolicy="no-referrer" alt="图 10"></li><li><span>另存 ASCII 再导入</span></li></ul><p><span>3、请不要反复将你的原理图或PCB导出AD格式后又导入，这个操作可能会导致细节丢失！！！</span></p><p><span>4、导入Altium文件时，如果有不支持的字符(比如乱码)将自动转为下滑线，所以导入后可能会发现有网络标签、器件名称、封装名、属性等多了一个下划线，请手动修改。AD目前的版本在另存为ASCII文件的时候，中文会变为乱码，所以在导入的时候也是乱码，需要用记事本等文本编辑器打开ASCII文件修正后再导入。</span></p><p><span>5、导入的 AD 文件最大支持 100MB，文件越大会导致导入时间越长或导入失败，建议手动减小文件体积。如先删除铺铜填充后(设置铺铜为无填充类型)再导入。</span></p><p>&nbsp;</p><p>&nbsp;</p><h3 id='附6-导出文件'><span>附6. 导出文件</span></h3><h4 id='61-导出bom表'><span>6.1 导出BOM表</span></h4><p><span>嘉立创EDA支持单独PCB导出BOM表(物料清单)，以便于你购买所需的零件。</span></p><p><span>需要注意：</span></p><p><span>1、在</span><strong><span>v6.4.17版本之前</span></strong><span>，当工程内</span><strong><span>有原理图</span></strong><span>，导出的BOM信息</span><strong><span>来自于原理图的符号</span></strong><span>，给器件分配的立创商品编号也是写入原理图的符号中。当工程内</span><strong><span>只有PCB</span></strong><span>时，导出的BOM信息</span><strong><span>来自PCB内的封装</span></strong><span>，给器件分配的立创商品编号也是写入PCB的封装中。</span></p><p><span>2、在</span><strong><span>v6.4.17版本及之后</span></strong><span>，原理图的BOM和PCB的BOM已经</span><strong><span>独立导出</span></strong><span>，在BOM对话框分配的元件编号也是独立写入对应的文件中。导出 BOM 时请区分要导出的是哪个文件的 BOM。</span></p><p>&nbsp;</p><p><span>①BOM导出可以通过：</span><strong><span>顶部菜单 - 文件 - 导出BOM</span></strong><span>  或   </span><strong><span>顶部菜单 - 制造 - 物料清单</span></strong></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Export-BOM-20200713174737.png" referrerpolicy="no-referrer" alt="图 24"></p><p><span>②点击后会弹出一个导出对话框。</span><span>	</span><span>导出前，你</span><strong><span>还可以为零件指定立创商城的零件编号</span></strong><span>，以利于在立创商城上方便购买元件，下单时直接上传BOM表即可：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-085_Export_BOM_Assign.png" referrerpolicy="no-referrer" alt="img"></p><p><span>③</span><strong><span>点击分配图标后会打开元件库搜索框</span></strong><span>，在这里找到你想要的零件后然后点击“分配”完成编号指定，分配的编号将出现在BOM中。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-274_Export_BOM_Assigned.png" referrerpolicy="no-referrer" alt="img"></p><p><span>④直接点击“</span><strong><span>导出BOM</span></strong><span>”按钮</span><strong><span>即可下载CSV格式的BOM表</span></strong><span>。目前BOM</span><strong><span>与立创商城打通</span></strong><span>，将实现一键加入购物车功能，届时将大大方便用户采购元件。</span></p><p><span>⑤BOM打开后如图：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Export-BOM-20201231092456.png" referrerpolicy="no-referrer" alt="picture 1"></p><p><span>支持导出价格，价格列是取当前立创商城的第一阶梯单价。</span></p><p><strong><span>注意</span></strong><span>：</span></p><ul><li><span>为了支持多语言，嘉立创EDA的</span><strong><span>BOM和坐标文件(CSV文件)</span></strong><span>均采用</span><strong><span>UNICODE</span></strong><span>编码，以制表符为CSV分隔符，</span><strong><span>如果</span></strong><span>你上传BOM至元件商城(如立创商城)</span><strong><span>无法使用</span></strong><span>，或者发送坐标文件至PCB制造商(如深圳嘉立创)无法使用，请</span><strong><span>自行转换CSV文件编码与分隔符</span></strong><span>。</span></li><li><strong><span>推荐的转换方式：</span></strong><span>使用Excel或WPS另存为新的CSV文件。以Excel为例，用Excel打开CSV文件后，依次点击或选择：另存为——其它格式——CSV(逗号分隔)(*.csv)。也可以使用任何文本编辑器(如Windows记事本)打开该CSV文件，另存为ANSI或UTF-8编码格式。如有必要，还需替换所有制表符为英文逗号。</span></li></ul><p>&nbsp;</p><h4 id='62-导出原理图'><span>6.2 导出原理图</span></h4><h5 id='621-导出原理图'><span>6.2.1 导出原理图</span></h5><p><span>可通过点击</span><strong><span>：顶部菜单 &gt; 文件 &gt; 导出 &gt; 图片/PDF</span></strong><span> 可以导出PDF，PNG，SVG格式文件：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20200709205055690.png" referrerpolicy="no-referrer" alt="image-20200709205055690"></p><p><span>在弹出的窗口有以下选项：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20200709205113295.png" referrerpolicy="no-referrer" alt="image-20200709205113295"></p><ul><li><p><strong><span>导出为</span></strong><span>：可选择PDF，PNG，SVG文件。</span></p></li><li><p><strong><span>线宽</span></strong><span>： 1x代表实际尺寸。当你设置为2x时，线宽会增大一倍。如下图，左边线宽为1x，右边线宽为2x。</span></p></li><li><p><span>引擎：</span></p><ul><li><span>本地：由编辑器生成 PDF。</span></li><li><span>云端：由云端服务器生成 PDF。未来嘉立创EDA将移除该选项。</span></li></ul></li><li><p><strong><span>类型</span></strong><span>： 当存在多页原理图时，选择单独页面导出的文档变成zip压缩包，解压后每个PDF代表一个原理图页，如果选择合并页面会在一个PDF上展示多个不同页的原理图。</span></p></li></ul><p><span>导出时可以勾选自己想要导出的原理图页。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-156_Export_SchematicExport_PenWidth.png" referrerpolicy="no-referrer" alt="img"></p><h5 id='622-打印原理图'><span>6.2.2 打印原理图</span></h5><p><span>在点击 </span><strong><span>文件</span></strong><span> &gt; </span><strong><span>打印</span></strong><span> 后，会打开打印对话框，设置参数后直接打印即可。</span></p><p><span>请留意打印边界的设置，否则打印出来的画面可能会超出单页界面。</span></p><p><span>客户端直接打印无法直接设置打印边界，请导出 PDF 后再打印，谷歌浏览器可以设置。</span></p><p><span>当使用谷歌浏览器打印的时候，请关闭打印预览对话框的设置项：“页尾和页脚”，否则A4大小打印在纸上会多占一张纸。</span></p><p><span>也可以使用导出的PDF，PNG，SVG进行打印。建议优先选择PDF打印。</span></p><p>&nbsp;</p><h4 id='63-导出gerber'><span>6.3 导出Gerber</span></h4><h5 id='631-生成gerber'><span>6.3.1 生成Gerber</span></h5><p><span>当你完成PCB设计之后，你可以生成Gerber文件，</span></p><p><span>1、通过</span><strong><span>：顶部菜单 - 文件 - 生成PCB制板文件(Gerber)</span></strong><span> 或者 </span><strong><span>顶部菜单 - 制造 - 生成PCB制板文件</span></strong><span>。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/Gerber-Generate-20200713182006.png" referrerpolicy="no-referrer" alt="图 30"></p><p><span>2、点击后会打开弹窗是否检查DRC或者网络。根据需要选择对应按钮。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/Gerber-Generate-20200713182116.png" referrerpolicy="no-referrer" alt="图 31">
+<img src="./PCB和硬件设计_基于立创EDA.assets/Gerber-Generate-20200713182216.png" referrerpolicy="no-referrer" alt="图 32"></p><p><span>3、当检测没有网络错误或者DRC错误后，会弹出Gerber生成对话框：</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/Gerber-Generate-20200713182307.png" referrerpolicy="no-referrer" alt="图 33"></p><p><span>4、点击按钮下载Gerber即可得到Gerber文件，一个 ZIP 压缩包，内部包含了制造文件和钻孔文件。</span></p><p><span>如果你需要PCB打样，建议通过嘉立创：</span><a href='http://www.jlc.com/'><span>www.jlc.com</span></a>
+<span>当然，你也可以将导出的Gerber文件发给任意一个厂家进行生产，嘉立创EDA并没有做任何使用限制！！</span>
+<span>Gerber文件的文件组成和编辑器的图层功能有一定的差别的，并不完全相同。</span></p><h5 id='632-gerber文件说明'><span>6.3.2 Gerber文件说明</span></h5><p><span>生成后的Gerber文件是一个压缩包，解压后你可以看到有如下文件：</span></p><figure><table><thead><tr><th style='text-align:left;' ><span>文件名</span></th><th style='text-align:left;' ><span>类型</span></th><th style='text-align:left;' ><span>备注/说明</span></th><th>&nbsp;</th></tr></thead><tbody><tr><td style='text-align:left;' ><strong><span>Gerber_BoardOutline.GKO</span></strong></td><td style='text-align:left;' ><span>边框文件</span></td><td style='text-align:left;' ><span>PCB板厂根据该文件进行切割板形状。嘉立创EDA绘制的槽，实心填充的非镀铜通孔在生成Gerber后在边框文件进行体现。</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_TopLayer.GTL</span></strong></td><td style='text-align:left;' ><span>PCB顶层</span></td><td style='text-align:left;' ><span>顶层铜箔层</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_BottomLayer.GBL</span></strong></td><td style='text-align:left;' ><span>PCB底层</span></td><td style='text-align:left;' ><span>底层铜箔层</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_InnerLayer1.G1</span></strong></td><td style='text-align:left;' ><span>内层铜箔层</span></td><td style='text-align:left;' ><span>信号层类型</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_InnerLayer2.GP2</span></strong></td><td style='text-align:left;' ><span>内层铜箔层</span></td><td style='text-align:left;' ><span>内电层类型的内层，在输出时是正片输出，在PCB绘制时是负片绘制(绘制的线条则不输出在Gerber)</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_TopSilkLayer.GTO</span></strong></td><td style='text-align:left;' ><span>顶层丝印层</span></td><td style='text-align:left;' >&nbsp;</td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_BottomSilkLayer.GBO</span><span>*</span></strong></td><td style='text-align:left;' ><span>底层丝印层</span></td><td style='text-align:left;' >&nbsp;</td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_TopSolderMaskLayer.GTS</span></strong></td><td style='text-align:left;' ><span>顶层阻焊层</span></td><td style='text-align:left;' ><span>也可以称之为开窗层，默认板子盖油，在该层绘制的元素对应到顶层的区域则不盖油</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_BottomSolderMaskLayer.GBS</span></strong></td><td style='text-align:left;' ><span>底层阻焊</span></td><td style='text-align:left;' ><span>也可以称之为开窗层，默认板子盖油，在该层绘制的元素对应到底层的区域则不盖油</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Drill_PTH_Through.DRL</span></strong></td><td style='text-align:left;' ><span>金属化多层焊盘的钻孔层</span></td><td style='text-align:left;' ><span>这个文件显示的是内壁需要金属化的钻孔位置</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Drill_PTH_Through_Via.DRL</span></strong></td><td style='text-align:left;' ><span>金属化通孔类型过孔的钻孔层</span></td><td style='text-align:left;' ><span>这个文件显示的是内壁需要金属化的钻孔位置。这个文件仅嘉立创使用</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Drill_NPTH_Through.DRL</span></strong></td><td style='text-align:left;' ><span>非金属化钻孔层</span></td><td style='text-align:left;' ><span>这个文件显示的是内壁不需要金属化的钻孔位置，比如通孔</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_TopPasteMaskLayer.GTP</span></strong></td><td style='text-align:left;' ><span>顶层助焊层</span></td><td style='text-align:left;' ><span>开钢网用</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_BottomPasteMaskLayer.GBP</span></strong></td><td style='text-align:left;' ><span>底层助焊层</span></td><td style='text-align:left;' ><span>开钢网用</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_TopAssemblyLayer.GTA</span></strong></td><td style='text-align:left;' ><span>顶层装配层</span></td><td style='text-align:left;' ><span>仅做读取，不影响PCB制造。曾用名称：ReadOnly.TopAssembly</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_BottomAssemblyLayer.GBA</span></strong></td><td style='text-align:left;' ><span>底层装配层</span></td><td style='text-align:left;' ><span>仅做读取，不影响PCB制造。曾用名称：ReadOnly.BottomAssembly</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_MechanicalLayer.GME</span></strong></td><td style='text-align:left;' ><span>机械层</span></td><td style='text-align:left;' ><span>仅做读取，默认不影响PCB制造。曾用名称：ReadOnly.Mechanical。记录在 PCB 设计里面在机械层记录的信息，仅做信息记录用。比如：工艺参数、V割路径等。</span></td><td>&nbsp;</td></tr><tr><td style='text-align:left;' ><strong><span>Gerber_DocumentLayer.GDL</span></strong></td><td style='text-align:left;' ><span>文档层</span></td><td style='text-align:left;' ><span>记录PCB的备注信息用，不参与制造生产</span></td><td>&nbsp;</td></tr></tbody></table></figure><p><strong><span>注意</span></strong><span>：</span></p><ul><li><em><span>在生成制造文件之前，请务必进行照片预览，查看设计管理器的 DRC 错误项，避免生成有缺陷的Gerber文件。</span></em></li><li><em><span>生成 Gerber 是通过浏览器生成，所以必须通过浏览器自身的下载功能下载，不能使用任何第三方下载器</span></em></li><li><em><span>Gerber文件的坐标跟随画布坐标</span></em></li><li><em><span>导出Gerber时，钻孔文件坐标格式精度默认3:3，当尺寸超出范围时自动用4:2格式，如果你在CAM350等查看工具发现钻孔偏移，请调整钻孔坐标格式即可。</span></em></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='二pcb设计进阶'><span>二：PCB设计进阶</span></h2><h3 id='21-边框'><span>2.1 边框</span></h3><p><span>可通过</span><strong><span>：工具 &gt; 边框设置</span></strong><span> 或者在工具栏的“工具”图标下“边框设置”。</span><strong><span>专业版在放置-&gt;板框</span></strong><span>，添加圆角可单击板框图形，并在右侧属性里添加。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20200710190049424.png" referrerpolicy="no-referrer" alt="image-20200710190049424"></p><p><span>如果你需要创建一个复杂的边框，你可以通过导入一个DXF文件生成。DXF可以由CAD等软件进行绘制生成。</span></p><p><strong><span>注意</span></strong><span>:</span></p><ul><li><span>如果绘制的边框出现多条边框重叠，或者边框没有闭合，在导出gerber时会报“边框未闭合”错误。</span></li><li><span>嘉立创EDA支持使用边框挖孔，或者使用</span><code>孔</code><span>、或</span><code>实心填充(类型：槽孔)</code><span>来实现挖孔。</span></li><li><span>导线右键菜单可以转为槽孔。</span></li></ul><p>&nbsp;</p><h3 id='22-实心填充'><span>2.2 实心填充</span></h3><p><span>		</span><span>实心填充功能，其实就是画图型，然后可以将其转成不同的层（顶层、底层、即变成焊盘；丝印层、挖槽区域 ）。你可以绘制所需的填充信息，该功能与铺铜有类似的地方，但是实心填充不能与不同网络的元素产生间隙。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-121_PCB_PCBTool_SolidRegion.png" referrerpolicy="no-referrer" alt="img"></p><p><span>进入绘制模式时，可以使用快捷键 “L” 和 空格键 改变绘制路径的模式(圆形，90度，45度，任意角度)和方向，与绘制导线类似。</span></p><p><span>绘制后点击实心填充的区域可以在右边修改其属性。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-121_PCB_PCBTool_SolidRegionAttributes.png" referrerpolicy="no-referrer" alt="img"></p><p><span>属性：</span></p><ul><li><p><strong><span>层</span></strong><span>：支持将实心填充切换至其他层：顶层，底层，顶层丝印，底层丝印，文档，多层等，这些层需要在层工具开启后才会全部显示出来。</span></p></li><li><p><strong><span>网络</span></strong><span>：在顶层和底层，或其他内层信号层时，可以对其设置网络使其具有电气特性。如果使用实心填充直接连接两个焊盘，需要将它们的网络设为一样，实心填充需要盖过焊盘中心，并且需要用单个实心填充连接起来，否则飞线不会消失。</span></p></li><li><p><strong><span>类型</span></strong><span>：全填充，槽孔，无填充。</span></p><ul><li><strong><span>全填充</span></strong><span>：通过设置网络且类型为实心填充，可以很容易将多个焊盘连接起来，效果与前面的铺铜类似。</span></li><li><strong><span>无填充</span></strong><span>：该类型仅将铺铜区的铜箔挖空，铺铜将不再对该区域铺铜，挖空不影响导线的走线。</span><strong><span>注意当你要挖空一个区域时，这个实心填充的网络不能与铺铜的网络相同</span></strong><span>。铺铜后效果与照片/3D预览效果如下图所示。挖空后你需要按 SHIFT+B 重建铺铜。铺铜后，不能删除这个无填充的实心填充元素！！</span></li><li><strong><span>槽孔</span></strong><span>：当设置实心填充类型为槽孔(也叫非镀铜通孔或非金属化孔)时，其所属的层也会自动切换至多层。实际PCB生产时会将PCB板挖穿(槽孔)。铺铜后效果与照片预览效果如下图所示。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-122_PCB_SolidRegion_1.png" referrerpolicy="no-referrer" alt="img"></li></ul></li><li><p><strong><span>编辑坐标点</span></strong><span>：支持实心填充坐标点编辑，编辑出你所需要的形状，包括圆弧的形状。</span></p></li><li><p><strong><span>创建开窗区</span></strong><span>：支持一键创建与实心填充形状一致的阻焊层图形，来进行开窗操作。</span></p></li></ul><p><strong><span>注意</span></strong><span>：</span></p><ul><li><span>实心填充的边界线不支持自相交，在绘制过程中的自相交部分会被自动移除，如果出现自相交请通过编辑坐标点将相交点删除。否则生成Gerber可能达不到预期。</span></li></ul><p><span>需要圆形实心填充可以绘制一个圆，右键转为“槽孔”，再把它的层设置为对应的层即可。</span></p><p>&nbsp;</p><h3 id='23-阵列'><span>2.3 阵列</span></h3><p><strong><span>阵列副本</span></strong><span>是复制粘贴，同一个东西，同一个属性。</span></p><p><strong><span>阵列分布</span></strong><span>会创建新的对象，属性（形状、大小）可不同。（常用）</span></p><h4 id='231-阵列副本'><span>2.3.1 阵列副本</span></h4><p><span>在：顶部菜单 - 编辑 - 阵列副本。</span></p><p><span>选中一个图元或多个图元后，点击阵列副本菜单，设置需要的参数后，即可进行阵列副本。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Distribute-Array-20210518203335.png" referrerpolicy="no-referrer" alt="picture 3"></p><p><span>点击确定后将生成多个图元。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Distribute-Array-20210518203355.png" alt="picture 4" style="zoom: 67%;" /></p><p>&nbsp;</p><h4 id='232-阵列分布'><span>2.3.2 阵列分布</span></h4><p><span>入口：顶部菜单 - 对齐 - 阵列分布。</span></p><p><span>使用方法：批量选择需要阵列分布的元素 - 点击阵列分布菜单 - 设置并分布。</span></p><p><strong><span>矩形阵列</span></strong><span>：</span></p><ul><li><p><span>元素旋转角度：元素的自身旋转角度，设为30则所有元素旋转30度。</span></p></li><li><p><span>位置：左上角第一个元素的位置。</span></p></li><li><p><span>分布类型：</span></p><ul><li><span>列：从上到下再从左到右，N字形分布。</span></li><li><span>行：从左到右再从上到下，Z字形分布。</span></li></ul></li></ul><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-319_PCB_DistributeArray_Retangular.png" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>圆形阵列</span></strong><span>：</span></p><ul><li><span>元素旋转角度：元素的自身旋转角度，设为30则所有元素旋转30度。</span></li><li><span>位置：圆心的位置。</span></li><li><span>半径：圆的半径。</span></li><li><span>起始角度：第一个元素的起始角度。0度是左边中心位置，第一象限与第四象限之间。</span></li><li><span>方向：元素排列的前进方向。顺时针或逆时针。</span></li><li><span>间隔：每个元素之间的间隔角度。</span></li><li><span>旋转对象以适合圆形：选择”是”的时候元素的摆放角度将根据 </span><code>元素旋转角度 + 间隔角度</code><span> 进行设置。</span></li></ul><p><span>未旋转对象：</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-320_PCB_DistributeArray_Circular.png" referrerpolicy="no-referrer" alt="img">
+<span>旋转对象后：</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-321_PCB_DistributeArray_Circular-RotateObjects.png" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h3 id='24-拼板'><span>2.4 拼板</span></h3><h4 id='241-自带拼板'><span>2.4.1 自带拼板</span></h4><p><span>视频教程：</span><a href='https://www.bilibili.com/video/av53277748/?p=3'><span>嘉立创EDA使用教程_自带拼版 | 哔哩哔哩</span></a></p><p><strong><span>注意</span></strong><span>：</span><strong><span>为了减少拼板的文件体积</span></strong><span>，</span><strong><span>自带拼板在拼板后是以拼接边框的方式</span></strong><span>，</span><strong><span>不需要重复拼接板子里面的元素</span></strong><span>。不需要做其他处理，嘉立创会自动处理你的拼板文件。</span></p><p><span>一般其他板厂也会支持这样的拼板文件，若不确定请联系对应的板厂的技术支持。</span></p><p><span>嘉立创EDA自带有拼板工具，在</span><strong><span>：顶部菜单 - 工具 - 拼板</span></strong><span>。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Panelize-20200713190116.png" referrerpolicy="no-referrer" alt="图 40"></p><p><span>拼板对话框：</span></p><p><strong><span>类型</span></strong><span>：</span></p><ul><li><span>V割：板子之间直接相连，将以V割的方式割开一条V形槽，拿到板子后可直接掰开。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-376_PCB_Panelize_V-Cut.png" referrerpolicy="no-referrer" alt="img">
+<span>当选择“V割”时，编辑器会自动在机械层添加 V 割线条。也会体现在Gerber的机械文件。</span></li><li><span>邮票孔：板子之间通过数个过孔相连，其他间距会割掉，拿到板子后可直接掰开。</span></li><li><span>不拼板：取消拼板。</span></li></ul><p><strong><span>数量</span></strong><span>：行数和列数至少一个大于1；行距和列距至少1.6mm（小于1.6mm板厂无法生产）。</span></p><p><strong><span>边界与标记</span></strong><span>：</span></p><ul><li><span>创建边界：是或否。根据设计需要是否创建拼板边界。</span></li><li><span>边界高度：高度至少 3mm，默认 5mm，小于 3mm 板厂无法生产。</span></li><li><span>边界位置：顶部和底部，坐边和右边。</span></li><li><span>创建定位孔：是或否。用于SMT机器固定板子位置。嘉立创不需要创建。</span></li><li><span>创建定位点：是或否。用于SMT机器定位坐标。嘉立创不需要创建。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-378_PCB_Panelize_Border.png" referrerpolicy="no-referrer" alt="img"></li></ul><p><span>在嘉立创上传拼板文件后，制造预览会显示如下，只有第一个 PCB 预览正常：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-365_PCB_OrderPanelizePCB.png" referrerpolicy="no-referrer" alt="img"></p><p><span>不需要做其他处理，嘉立创会自动处理你的拼板文件。</span></p><h4 id='242-手动拼板'><span>2.4.2 手动拼板</span></h4><p><span>视频教程：</span><a href='https://www.bilibili.com/video/av53277748/?p=1'><span>嘉立创EDA使用教程_手动拼版 | 哔哩哔哩</span></a></p><p><span>步骤：</span></p><p><span>1、先全选 PCB，快捷键 </span><code>CTRL+A</code></p><p><span>2、根据参考点复制整块 PCB，快捷键 </span><code>CTRL+C</code></p><p><span>3、根据选点的参考点粘贴整块 PCB，快捷键 </span><code>CTRL+SHIFT+V</code><span>。该快捷键会保持元件编号不变，并且隐藏飞线层。可以在粘贴的时候对位，或者放置后批量框选再对位，也可以把板子组合后再移动对位。</span></p><p><span>4、不断进行对位粘贴即可，完成后 </span><code>SHIFT+B</code><span> 重建铺铜。建议铺铜最后绘制。如果每个板子单独铺铜，可能在拼板后无法正常铺铜。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-358_PCB_Panelize_By-Manually.png" referrerpolicy="no-referrer" alt="img"></p><p><span>5、如果需要工艺边和V割线，则在边框层（板框层）绘制边框导线。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Panelize_20220907_110642.png" referrerpolicy="no-referrer" alt="图 2"></p><p><span>6、如果需要邮票孔，放置圆形挖槽区域，设置好大小和间距，放在边框线上。邮票孔直径0.55mm，间距0.85mm。具体参数可以参考：</span><a href='https://www.sz-jlc.com/portal/server_guide_69.html'><span>嘉立创V割拼板</span></a><span> 和 </span><a href='https://www.sz-jlc.com/portal/server_guide_10181.html'><span>嘉立创邮票孔拼板</span></a></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Panelize_20220907_110612.png" referrerpolicy="no-referrer" alt="图 1"></p><p><span>7、如果需要定位孔和定位点，可以放置圆形挖槽区域（定位孔），加单层焊盘（定位点）。定位点需要在顶层和底层信号层均放置，定位孔直径2mm，定位点焊盘直径1mm，阻焊扩展0.5mm。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Panelize_20220907_110812.png" referrerpolicy="no-referrer" alt="图 3"></p><p><span>定位孔和定位点需要在对角放置，并且上边和下边距离左右边界的距离不能一样，否则SMT无法准确定位，如图。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/Panelize_20220907_110900.png" referrerpolicy="no-referrer" alt="图 4"></p><p><strong><span>注意</span></strong></p><p><span>1、有内电层的板子不能使用手动拼板，否则内电层无法正常生效。因为内电层的实现方式必须要和完整边框才可以，手动复制粘贴多个边框内电区块分割会异常，网络也无法继承。需要改为信号层用铺铜代替内电分割。</span>
+<span>2、编辑器自带拼板和手动拼板不能同时进行。</span></p><p>&nbsp;</p><h3 id='25-pcb板层layer）'><span>2.5 PCB板层（Layer）</span></h3><p><span>机械层（Mechanical Layer）：其实就是PCB板的实际形状、尺寸和组件布局。</span></p><p><span>禁止布线层（Keep out Layer）：就是展示电路板中没有布局的层。</span></p><p><span>信号层（Signal Layer）：导线布置，连接电子元件各个引脚。信号传输。</span></p><p><span>电源层，接地层（Internal plane Layer VCC GND）：就是布置电源和地的层。</span></p><p><span>丝印层（Silkscreen Layer）：组件引脚标识、自定义标识、图案、生产信息....</span></p><p><span>阻焊层（Solder mask Layer）：阻止短路，保护电路。</span></p><p><span>钻孔层（Drill Layer）：钻孔层允许在PCB板的不同层次建立电气连接和信号传输。</span></p><p>&nbsp;</p><h3 id='26-过孔'><span>2.6 过孔</span></h3><h4 id='261-过孔的类型'><span>2.6.1 过孔的类型</span></h4><p><span>过孔一般又分为三类：通孔、盲孔和埋孔。</span></p><p><strong><span>盲孔</span></strong><span>：指位于印刷线路板的顶层和底层表面，</span><strong><span>具有一定深度，但未贯穿</span></strong><span>，用于表层线路和下面的内层线路的连接，孔的深度与孔径通常不超过一定的比率。</span></p><p><strong><span>埋孔</span></strong><span>：指</span><strong><span>位于印刷线路板内层</span></strong><span>的连接孔，它不会延伸到线路板的表面。</span></p><p><strong><span>通孔</span></strong><span>：这种孔</span><strong><span>贯穿整个线路板</span></strong><span>，可用于实现内部互连或作为元件的安装定位孔。由于通孔在工艺上更易于实现，成本较低，所以一般印制电路板均使用。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226163403451.png" alt="image-20231226163403451" style="zoom:50%;" /></p><p>&nbsp;</p><h4 id='262-过孔的设计规则'><span>2.6.2 过孔的设计规则</span></h4><p><span>综合设计与生产，工程师需要考虑以下问题：</span></p><p><strong><span>1</span></strong><span>. </span><strong><span>过孔不能位于焊盘上，热传导通孔除外</span></strong><span>；</span></p><p><strong><span>2</span></strong><span>. </span><strong><span>器件金属外壳与PCB接触区域向外延伸1.5mm区域内不能有过孔</span></strong><span>。</span></p><p><strong><span>3</span></strong><span>. </span><strong><span>贴片胶点涂或印刷区域内不能有过孔</span></strong><span>。如采用贴片胶点涂或印刷工艺的CHIP、SOP元件下方的PCB区域。</span></p><p><strong><span>4</span></strong><span>. 全通过孔内径原则上要求0.2mm（8mil）及以上，外径的是0.4mm（16mil）以上，有困难地方必须控制在外径为0.35mm（14mil）。</span></p><p><strong><span>5</span></strong><span>. BGA在0.65mm及以上的设计建议不要用到埋盲孔，成本会大幅度增加。</span></p><p><strong><span>6. 过孔与过孔之间的间距不宜过近</span></strong><span>，钻孔容易引起破孔，一般要求孔间距0.5mm及以上，0.35mm-0.4mm极力避免，0.3mm及以下禁止。</span></p><p>&nbsp;</p><h4 id='263-普通pcb中的过孔'><span>2.6.3 普通PCB中的过孔</span></h4><p><span>		</span><span>在普通PCB设计中，</span><strong><span>过孔的寄生电容和寄生电感</span></strong><span>对PCB设计的</span><strong><span>影响较小</span></strong><span>，对1-4层PCB设计，一般选用 0.36mm / 0.61mm / 1.02mm（钻孔/焊盘/POWER隔离区）的过孔较好，一些特殊要求的信号线（如电源线、地线、时钟线等）可选用 0.41mm / 0.81mm / 1.32mm 的过孔，也可根据实际选用其余尺寸的过孔。</span></p><p>&nbsp;</p><h4 id='264-高速pcb中的过孔'><span>2.6.4 高速PCB中的过孔</span></h4><ol start='' ><li><strong><span>PCB上的信号走线尽量不换层</span></strong><span>，也就是说尽量减少过孔；</span></li><li><span>在</span><strong><span>信号换层的过孔附近放置一些接地过孔</span></strong><span>，以便为信号提供短距离回路；</span></li><li><span>在空白区域（</span><strong><span>元器件GND引脚区域</span></strong><span>和需要隔离区域）</span><strong><span>放置过孔，连接顶层和底层铺铜</span></strong><span>。</span></li><li><strong><span>使用较薄的PCB</span></strong><span>有利于</span><strong><span>减小</span></strong><span>过孔的两种</span><strong><span>寄生参数</span></strong><span>；</span></li><li><strong><span>选择合理的过孔尺寸</span></strong><span>。对于多层一般密度的PCB设计来说，选用0.25mm / 0.51mm / 0.91mm（钻孔 / 焊盘 / POWER隔离区）的过孔较好；对于一些高密度的PCB也可以使用 0.20mm / 0.46mm / 0.86mm 的过孔，也可以尝试非穿导孔；对于电源或地线的过孔则可以考虑使用较大尺寸，以减小阻抗。</span></li><li><strong><span>POWER隔离区越大越好</span></strong><span>，考虑PCB上的过孔密度，一般为D1=D2+0.41；</span></li></ol><p>&nbsp;</p><p>&nbsp;</p><h2 id='三-pcb设计高阶'><span>三： PCB设计高阶</span></h2><h3 id='31-十条重要的布线原则'><span>3.1 ※※※十条重要的布线原则</span></h3><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226172334604.png" referrerpolicy="no-referrer" alt="image-20231226172334604"></p><p>&nbsp;</p><ol start='' ><li><strong><span>连线精简</span></strong><span>：能不拐弯就不拐弯，能不换层就不换层。</span></li></ol><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226165313992.png" alt="image-20231226165313992" style="zoom: 50%;" /></p><ol start='2' ><li><strong><span>避免直角走线</span></strong><span>：在直角线路上直接绘制一条斜线，软件会自动将直角删除转为该斜线。</span></li></ol><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226165343795.png" alt="image-20231226165343795" style="zoom:50%;" /></p><ol start='3' ><li><strong><span>差分走线</span></strong><span>：信号线等长、等距。首先需要计算</span><strong><span>匹配阻抗</span></strong><span>，然后</span><strong><span>设置差分走线规则</span></strong><span>。如USB的D+和D-，</span><strong><span>先进行差分布线，再进行等长布线</span></strong><span>，当距离不等长时，选中两条线-布线-等长布线-TAB-设置布线规则-20mil、8mil-选择一条线的起点-进行拖动-使其处于绿色标准区间内，两条差分线长度误差不应超过10mil、5mil。</span></li></ol><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226165526162.png" alt="image-20231226165526162" style="zoom:50%;" /></p><ol start='4' ><li><p><strong><span>蛇形线等长</span></strong><span>：通常用于让信号传输保持足够的时间。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226165546556.png" alt="image-20231226165546556" style="zoom:50%;" /></p></li><li><p><strong><span>圆滑走线</span></strong><span>：使用泪滴。添加</span><strong><span>泪滴</span></strong><span>：工具-泪滴-新增。泪滴是在导线连接焊盘处，进行三角形（泪滴型）的过渡连接，其主要作用是防止导线断裂和保护。不使用也可以删除，工具-泪滴-移除。</span></p></li></ol><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226165641432.png" alt="image-20231226165641432" style="zoom:50%;" /></p><ol start='6' ><li><strong><span>数字模拟分开</span></strong><span>：单点接地，使用0欧姆电阻/磁珠进行隔离。</span></li></ol><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226165706425.png" alt="image-20231226165706425" style="zoom:50%;" /></p><ol start='7' ><li><strong><span>&quot;※※3W&quot;原则</span></strong><span>：W为信号线宽度（如10mil），两线中心相隔3W（30mil），边缘间隔20mil。</span></li></ol><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226170121271.png" alt="image-20231226170121271" style="zoom:50%;" /></p><ol start='8' ><li><strong><span>&quot;※20H&quot;原则</span></strong><span>:内层的内电层（GND、VCC）内缩，左侧为内缩前，有电场泄露。右侧为</span><strong><span>内缩后。内电层、铺铜内缩约40mil</span></strong><span>。</span></li></ol><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226165756130.png" alt="image-20231226165756130" style="zoom:50%;" /></p><ol start='9' ><li><span>附、铜箔承载电流</span><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226170530646.png" referrerpolicy="no-referrer" alt="image-20231226170530646"></li><li><span>附、过孔承载电流</span></li></ol><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226170558078.png" referrerpolicy="no-referrer" alt="image-20231226170558078"></p><p>&nbsp;</p><h3 id='32-高速信号'><span>3.2 高速信号</span></h3><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226171307052.png" referrerpolicy="no-referrer" alt="image-20231226171307052"></p><p><span>信号传输时间指的是 在PCB走线上的传输时间。</span></p><p><span>使用</span><strong><span>特殊的板材</span></strong><span>也可以应对高速信号布线的一些需求。</span></p><p>&nbsp;</p><h3 id='33-高频信号'><span>3.3 高频信号</span></h3><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226172137084.png" referrerpolicy="no-referrer" alt="image-20231226172137084"></p><p>&nbsp;</p><h3 id='33-阻抗匹配'><span>3.3 阻抗匹配</span></h3><p><span>要清楚传输线的概念，双绞线的阻抗大概为120Ω，同轴电缆大概为50Ω，USB3.0为90Ω。</span></p><p><span>影响阻抗的因素：介质厚度，介电长度，铜厚，线宽，线距，阻焊厚度等</span></p><p><strong><span>阻抗不是电阻</span></strong><span>，是电路中对信号的阻碍作用。</span></p><p><strong><span>阻抗匹配</span></strong><span>就像 使物体漂浮在一个水平面 ，</span><strong><span>要保持信号一致性</span></strong><span>。</span></p><p><span>会导致</span><strong><span>阻抗不连续</span></strong><span>的情况：1.信号大拐弯 2.走线宽度不一致 3.走线穿过不同层。</span></p><p><span>通过</span><a href='https://tools.jlc.com/jlcTools/index.html#/impedanceCalculateNew'><span>嘉立创阻抗计算神器 (jlc.com)</span></a><span>来进行阻抗匹配。USB3.0设计选择共面差分阻抗。</span></p><p><span>有几个参数需要设置：</span></p><ul><li><strong><span>需求阻抗</span></strong><span>。如90Ω。</span></li><li><strong><span>阻抗模式</span></strong><span>。如共面差分阻抗。</span></li><li><strong><span>阻抗层</span></strong><span>。如USB3.0布线所在层。</span></li><li><strong><span>上下参考层。</span></strong></li><li><strong><span>线距</span></strong><span>。导线到导线的距离。免费板材工艺最小6mil。</span></li><li><strong><span>阻抗线到铜的距离</span></strong><span>。</span></li></ul><p>&nbsp;</p><p><span>设计规则里需要更改的：1.安全间距里的线距。2.导线宽度（根据芯片焊盘确定）。3.差分对，根据计算的参数修改。4.修改内电层到板框的距离内缩40mil。5.修改铺铜到板框的距离内缩40mil。</span></p><p><a href='https://www.jlc.com/portal/vtechnology.html'><span>嘉立创PCB工艺加工能力范围说明 (jlc.com)</span></a></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226175828575.png" referrerpolicy="no-referrer" alt="image-20231226175828575"></p><p><span>阻抗模式选择</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240104231208078.png" referrerpolicy="no-referrer" alt="image-20240104231208078"></p><p><span>共面和不共面：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240105184617011.png" referrerpolicy="no-referrer" alt="image-20240105184617011"></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='四四层板设计'><span>四：四层板设计</span></h2><h3 id='1-板层知识'><span>1. 板层知识</span></h3><p><strong><span>内层可设置为内电层或信号层。</span></strong></p><ul><li><strong><span>内电层默认为GND，进一步可自由设置网络（比如设置为vcc等）。</span></strong></li><li><strong><span>信号层走信号线。</span></strong></li></ul><p><strong><span>内层和其它层连接的方式为：过孔。</span></strong><span>若该网络与该内层无关，则这个过孔周围就没有普通，达到避开信号连接的目的。如果该过孔与该内层有关，则会连接到一起。</span></p><p><strong><span>在工具-层管理器中可设置为几层板，内层分别是什么层（内电层还是信号层）。</span></strong></p><ol start='' ><li><span>顶层和底层铜厚1oz（盎司），内部两个信号层铜厚0.5oz（GND、信号层、小电流电流层）。</span></li><li><span>通常重要信号层（如顶层），需靠近GND层。</span></li></ol><h3 id='2-填充功能'><span>2. 填充功能</span></h3><p><span>就是先画图形（矩形、圆形、多边形），再选择为什么类型</span></p><ol start='' ><li><strong><span>板框</span></strong><span>：板框就是实际的PCB板子大小、形状。</span></li><li><strong><span>铺铜区域</span></strong><span>：就是阻焊覆盖下的铺铜。</span></li><li><strong><span>填充区域</span></strong><span>：就是裸露在外的焊盘</span></li><li><strong><span>挖槽区域</span></strong><span>：就是在PCB板子上挖掉的部分。</span></li><li><strong><span>禁止区域</span></strong><span>：就是不准在这个区域进行一些操作（如铺铜、走线、放置元件等）。</span></li><li><strong><span>约束区域</span></strong><span>：在约束规则里面设置比如在该区域布线的原则。</span></li><li><strong><span>线条</span></strong><span>：就是不是一整个区域，而是这个区域的轮廓，可以转为丝印或其他类型。</span></li></ol><p>&nbsp;</p><h3 id='2-芯片手册'><span>2. 芯片手册</span></h3><p><strong><span>使用网易有道词典 截图翻译，快速上手芯片手册</span></strong><span>。</span></p><p><strong><span>ctrl+F快速查找</span></strong><span>功能</span><strong><span>查找芯片引脚定义</span></strong><span>。</span></p><p><span>vl812（贵，无货），vl813（便宜、平替），vl817。GL3523。TUSB8041。</span></p><p><span>VL160（实现USB正反插识别）。</span></p><h3 id='3-设计'><span>3. 设计</span></h3><p><span>在设计-&gt;差分对管理器里添加所有的差分对。</span></p><ul><li><strong><span>USB信号要走差分线</span></strong><span>，</span><strong><span>阻抗控制为90欧姆</span></strong><span>，并做包地出来，高速差分线</span><strong><span>长度最好不要超过1800mil</span></strong><span>；</span></li><li><span>在走线时，</span><strong><span>优先考虑高速差分信号线</span></strong><span>，</span><strong><span>尽可能不要换层</span></strong><span>，在换层时，加入回流地过孔；</span></li><li><strong><span>差分对长度误差尽可能小，建议在5mil以内</span></strong><span>。</span></li></ul><p>&nbsp;</p><p><span>tips：右键芯片符号 - 编辑符号，可进行引脚颜色分类。shift+F搜索元器件。</span></p><p><span>tips：可以将PCB的电源线高亮，不同等级电源用不同颜色区分，隐藏地线。</span></p><p>&nbsp;</p><p><span>完成原理图设计和PCB布局后，</span></p><p><strong><span>点击工具-图层管理器-更改铜箔层为4-设置内层为内电层（V、G），或信号层。</span></strong></p><p><strong><span>选择内电层可更改其网络,进入该内电层，点击pcb界面的内电层，然后点击右侧重建内电层。</span></strong></p><p><span>高速信号线要进行阻抗匹配，如USB3.0。选择共面差分-通过最小6，6的输入，</span></p><p><span>计算出结果-更改设计规则的线距（计算时的参数）</span></p><ol start='' ><li><span>导线宽度（要考虑芯片焊盘宽度）</span></li><li><span>差分对（要严格按照计算出来的参数填写）</span></li><li><span>过孔尺寸（内径&gt;12mil，外径&gt;16mil）</span></li><li><span>内电层：到边框间距，一般要内缩（如40mil），具体看布线“20H原则”。</span></li></ol><p>&nbsp;</p><p><span>晶振走内差分，晶振电路要包地处理。</span></p><p><strong><span>电源线使用过孔扇出</span></strong><span>，要注意过孔的间距。</span></p><p><span>芯片的每个电源引脚最好都接一个100nf（0.1uf）电容，更高频、更精密的使用10nf（0.01uf）。</span></p><p><span>差分对布线：设计-差分对-新增-命名-选择其中一个引脚-自动识别第二个-点击应用。</span></p><p><span>布线-差分对布线。</span></p><p><span>优先走有阻挡的差分线，要先考虑优先级高的差分线。</span></p><p><span>要对高速信号线进行包地（打过孔）处理。</span></p><p><span>如下图：差分到底。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240105014739288.png" alt="image-20240105014739288" style="zoom: 50%;" /></p><p>&nbsp;</p><p><span>1.</span><strong><span>电源线之间的连接可以进行多边形填充，增大过流面积。</span></strong></p><p><span>2.</span><strong><span>电源线太粗</span></strong><span>无法穿过时使用下图这种方式，</span><strong><span>通过换层走线</span></strong><span>。然后给</span><strong><span>填充添加圆角</span></strong><span>。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240105021325583.png" alt="image-20240105021325583" style="zoom:50%;" /></p><p>&nbsp;</p><p>&nbsp;</p><p><strong><span>包地</span></strong><span>：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240105022120950.png" alt="image-20240105022120950" style="zoom:50%;" /></p><p><span>检查DRC，出现很多很多报错，1.可能是因为因为在删除过孔时，内电层出现不连续，点击重建两个内电层。</span></p><p><span>2.差分错误，是由于该对信号线长度偏差过大引起的（&gt;10mil），高速信号线要求&lt;5mil。此时看左侧侧边栏-差分对-使用等长调节，增长短的那条信号线（间距W=3W，最小振幅H=1W）。在符合等距的同时，绕线角度不宜过大。</span></p><p><span>3.游离的铜块，把内电层保留孤岛去掉。</span></p><p><span>4.有很多一小块一小块的、不规则的、凸起的铺铜，会影响信号连续性。点击禁止区域-然后框选-完成后按shift+b就会去掉。</span></p><p><span>5.四个JLCJLCJLCJLC丝印可以指定客标位置。</span></p><p><span>6.下单时要选择阻抗计算时推荐的板材，否则前功尽弃。</span></p><p><span>7.在匹配电路参数的时候参数无法确定，在实物测试的时候需要拿掉一个电阻或者需要更换不同的阻值，从而获得一个最佳的方案，这个时候通常就会用到</span><strong><span>0欧姆电阻</span></strong><span>。 用0欧姆电阻代替，等实际调试后确定参数，再以具体数值的元器件代替。</span></p><p><span>8.</span><strong><span>静电保护，并联TVS管</span></strong><span>。TVS管是一种瞬变电压抑制二极管，也称为钳位二极管。它是一种高效能电路保护器件，能吸收高达数千瓦的浪涌功率，</span><strong><span>保护电子线路中的精密元器件免受各种浪涌脉冲的损坏</span></strong><span>。当TVS管两端经受瞬间的高能量冲击时，它能以10-12纳秒量级的速度，将其两极间的高阻抗变为低阻抗，吸收大电流，将管子两段的电压钳制在一个固定电压，进而保护和它并联的电路。TVS管的反应速度比RC回路快10E-12s，因此可有效地保护电子线路中的精密元器件。</span></p><p>&nbsp;</p><h3 id='4-芯片知识'><span>4. 芯片知识</span></h3><p><strong><span>1. USB输入差分信号线的发送信号线</span></strong><span>TX+，TX-引脚</span><strong><span>各串联一个100nf电容</span></strong><span>能够</span><strong><span>提高信号质量</span></strong><span>。</span></p><p><strong><span>2. 高速差分信号线两旁要包地。</span></strong></p><p><strong><span>3. 高速信号线尽量短，能走直线就走直线。</span></strong></p><p><strong><span>4. 做完差分布线后，还要进行等长匹配。</span></strong></p><p><strong><span>5. 内电层要设置网络，然后进行重建。</span></strong></p><p>&nbsp;</p><h3 id='5-传输速度测试软件'><span>5. 传输速度测试软件</span></h3><p><span>CystalDiskMark 8.04 Shizuku</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240105190230123.png" referrerpolicy="no-referrer" alt="image-20240105190230123"></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='五典型电路设计'><span>五：典型电路设计</span></h2><h3 id='1-晶振电路'><span>1. 晶振电路</span></h3><p><span>晶振起振电容选型。</span></p><ul><li><span>晶振要</span><strong><span>靠近芯片晶振输入引脚，晶振和芯片在同一面</span></strong><span>。</span></li><li><span>晶振和晶振电容对称分布，</span><strong><span>信号线等距、等长，走内差分</span></strong><span>。</span></li><li><strong><span>晶振电路包地</span></strong><span>，外壳接地。</span></li><li><span>晶振</span><strong><span>不要放在板的边缘</span></strong><span>。</span></li><li><span>晶振背面最好不要布线。</span></li><li><span>晶振底部铺铜挖掉（可不用）。</span></li></ul><h3 id='2-io信号线'><span>2. IO信号线</span></h3><ul><li><span>IO信号线不用很粗，10mil、8mil都可以，可以根据焊盘宽度选择。</span></li><li><span>复位线、时钟线能包地就包地，不能就间隔3W布线；</span></li><li><span>有条件打缝边孔。</span></li></ul><p>&nbsp;</p><h3 id='3-电源线'><span>3. 电源线</span></h3><ul><li><span>电源线要粗，至少12mil，14mil，推荐20mil、30mil；</span></li><li><span>电源线出来粗一点，过去滤波电容，再打孔换层进芯片。</span></li><li><span>电源滤波：用0.1uf，高频用0.01uf。</span></li><li><span>一片或大块的电源焊盘可以</span><strong><span>使用填充</span></strong><span>将几个焊盘连接成一整块。</span></li></ul><p>&nbsp;</p><h3 id='4-分压电路设计'><span>4. 分压电路设计</span></h3><p><span>其实就是利用两个电阻电阻分压。</span></p><p><span>5v-&gt;3.4v。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240105185528497.png" alt="image-20240105185528497" style="zoom: 33%;" /></p><p>&nbsp;</p><h3 id='5-静电保护电路设计'><span>5. 静电保护电路设计</span></h3><p><span>输入电源并联一个TVS管。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240105185917749.png" alt="image-20240105185917749" style="zoom:50%;" /></p><p>&nbsp;</p><h3 id='6-降压稳压电路设计'><span>6. 降压稳压电路设计</span></h3><p><span>DC-DC和LDO线性稳压器的区别：</span></p><p><span>DC-DC通常是Buck、Boost这类开关电源，高功率、高效率。</span></p><p><span>LDO其内部相当于一个滑动变阻器，当芯片输出电压高于设定值时，会增大滑动变阻器的值，当当芯片输出电压低于设定值时，会减小滑动变阻器的值。</span></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='附一仿真设计立创eda标准版'><span>附一：仿真设计(立创EDA标准版)</span></h2><p><span>点击左上角嘉立创EDA的 logo 可以切换标准模式和仿真模式。 </span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226130822239.png" referrerpolicy="no-referrer" alt="image-20231226130822239"></p><p>&nbsp;</p><h3 id='1-仿真界面介绍'><span>1. 仿真界面介绍 </span></h3><p><span>在仿真模式下新建一个工程，添加原理图，元器件在</span><strong><span>仿真库</span></strong><span>里调用。</span></p><p><span>立创 EDA 的仿真功能齐全， 有着十分突出的特点： </span></p><ul><li><strong><span>支持仿真原理图转 PCB 功能；</span></strong><span> </span></li><li><strong><span>支持器件模型的 2D 和 3D 的显示；</span></strong><span> </span></li><li><strong><span>支持基本电阻电容模型的仿真；</span></strong><span> </span></li><li><strong><span>支持万用表、示波器和信号发生器仪表仿真；</span></strong><span> </span></li><li><strong><span>支持电压源、电流源和基本受控源的仿真；</span></strong></li><li><strong><span>支持模拟电路和数字电路仿真；</span></strong><span> </span></li><li><strong><span>支持导出仿真波形，方便在原理图上显示。</span></strong></li></ul><p><span> </span></p><h3 id='2-仿真例程'><span>2. 仿真例程 </span></h3><p><span>用一个 NPN 三极管搭建的</span><strong><span>共发射极放大电路</span></strong><span>的例子来说明仿真各项功能的使用。 </span></p><h4 id='21-添加器件'><span>2.1 添加器件 </span></h4><ol start='' ><li><span>先从元件库里面找到 NPN 三极管的模型，随后放置该模型，左键点击图形可以选择型号。</span></li><li><span>再添加 Rb1 和 Rb2 两个偏置电阻，一个 Rc集电极 电阻和 Re发射极 电阻和输入输出电容，</span></li><li><span>用信号发生器作为信号源输入、示波器测量输出信号、万用表测量各点的电压情况。</span></li></ol><p><span>仿真电路连接如下图所示： </span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226132207127.png" referrerpolicy="no-referrer" alt="image-20231226132207127"></p><p>&nbsp;</p><h4 id='22-仿真分析'><span>2.2 仿真分析 </span></h4><ul><li><span>点击 “运行仿真”按键 即可开始仿真，随即出现一个仿真波形图。</span></li><li><span>在这个图上可以任意放大、缩小，查看某点的幅值和时间。</span></li><li><span>也可以将图像复制到仿真原理图页面粘贴（原理图和仿真波形在同一界面显示）或保存为 CSV 文件。</span></li></ul><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226132538199.png" referrerpolicy="no-referrer" alt="image-20231226132538199"></p><p><span>		</span><span>除了运行仿真时出现的波形图之外，还可以鼠标左键点击示波器，然后在右侧的属性框内选择“打开示波器”。通过设置</span><strong><span>时基</span></strong><span>和</span><strong><span>每个通道网格大小</span></strong><span>和 </span><strong><span>y 轴的偏移量</span></strong><span> 使波形更加清楚地显示。  </span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20231226132811542.png" referrerpolicy="no-referrer" alt="image-20231226132811542"></p><p>&nbsp;</p><h4 id='23-仿真图转pcb'><span>2.3 仿真图转PCB </span></h4><p><span>	</span><span>先</span><strong><span>保存</span></strong><span>当前的仿真原理图，</span><strong><span>关闭后切换到标准模式</span></strong><span>下，</span><strong><span>重新打开原理图</span></strong><span>就可以正常画 PCB 了。 </span></p><p><span>	</span><strong><span>检查封装：</span></strong></p><ul><li><span>进入标准模式下后，点击一个器件，在右侧属性框内点击封装，进入封装管理页面，系统会使用默认封装。</span></li><li><span>检查一下器件， 没有封装的自己加上。</span></li><li><span>如果需要修改其它封装的话，在封装管理页面搜索选择修改即可。 </span></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='附二创建符号库'><span>附二：创建符号库</span></h2><h3 id='1-创建符号库'><span>1. 创建符号库</span></h3><p><span>创建符号可以：</span></p><ul><li><span>在原理图中使用“符号库向导”和“组合/解散”功能创建一个符号库符号，创建后如果要在其他的原理图文档中使用该符号</span></li><li><span>可对它进行复制(快捷键CTRL + C)，切换文档后粘贴(快捷键CTRL + V)。</span></li></ul><p><span>但这两种方法创建的库文件不会保存在“我的库文件”中，所以需要保存在“我的库文件”中时，可创建一个符号库文件。</span></p><p><em><span>建议在新建一个符号库之前，先在“元件库”中搜索，可避免重复工作，或者可以在相近元件的库文件上直接编辑另存为一个新的库文件，以减少工作量。</span></em></p><p><span>以下是创建一个符号库的具体方法：</span></p><h4 id='11-新建符号库'><span>1.1 新建符号库：</span></h4><p><span>通过 </span><strong><span>顶部菜单 - 文件 - 新建 - 符号</span></strong></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Create-20200714173407.png" referrerpolicy="no-referrer" alt="picture 11"></p><p><span>会打开一个空白库文件。</span></p><h4 id='12-绘制图形符号'><span>1.2 绘制图形符号</span></h4><ul><li><p><strong><span>获取元件的规格书</span></strong>
+<span>比如NE555DR，规格书下载地址 </span><a href='https://item.szlcsc.com/8070.html'><span>LCSC: NE555DR</span></a><span>.</span>
+<span>然后根据规格书绘制图形和放置引脚。该元件有8个脚。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-337_SchematicLib_NewLib_NE555DR.png" referrerpolicy="no-referrer" alt="img"></p></li><li><p><strong><span>使用符号库向导创建</span></strong>
+<img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Create-20200714173525.png" referrerpolicy="no-referrer" alt="picture 12">
+<span>更多信息请查看下一章节的 </span><strong><span>符号库向导</span></strong><span>。</span></p></li><li><p><strong><span>手动创建</span></strong></p><ul><li><p><span>使用“绘图工具”绘制元件的边框图形</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-331_SchematicLib_CreateShape.png" referrerpolicy="no-referrer" alt="img"></p><ul><li><span>放置引脚</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-332_SchematicLib_PlacePins.png" referrerpolicy="no-referrer" alt="img">
+<span>引脚的端点需要朝外，它是作为连接导线的连接点。更多关于引脚的信息请查看后面的“符号库- 属性 - 引脚属性”章节。</span></li></ul></li></ul></li></ul><h4 id='13-编辑引脚'><span>1.3 编辑引脚</span></h4><p><span>修改引脚属性：</span></p><ul><li><span>可以通过点击每个引脚，然后在右边属性面板修改，</span></li><li><span>也可以通过 </span><strong><span>顶部菜单 - 工具 - 引脚管理器</span></strong><span> 修改引脚的名称和编号。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Create-20200714173700.png" referrerpolicy="no-referrer" alt="picture 13"></li></ul><p><span>引脚编号必须和封装的焊盘编号一一对应，否则可能原理图无法正常转PCB。</span></p><p><span>注意：引脚如果隐藏后，将根据引脚名生成一个网络进行连接，如果不是需要，建议不进行隐藏。</span></p><h4 id='14-修改细节'><span>1.4 修改细节</span></h4><p><span>比如修改引脚长度，颜色，其他属性，放置标识文本等。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-334_SchematicLib_ModifyDetail.png" referrerpolicy="no-referrer" alt="img"></p><h4 id='15-设置属性'><span>1.5 设置属性</span></h4><p><span>你可以设置厂商名称，厂商料号，封装(建议设置，点击后弹出封装管理器设置，封装管理器的使用请查阅前面章节)，库的名称，编号(放置在原理图里面的默认编号)，更多属性请查看后面的“符号库属性”。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-335_SchematicLib_SetCostomAttributes.png" referrerpolicy="no-referrer" alt="img"></p><p><span>如果不需要元件在BOM或者转为PCB，可以在属性里面把“加入BOM”和“转为PCB”设置为否。当把转为PCB设置为否时，该器件符号将不会在封装管理器里面显示。</span></p><h4 id='16-设置原点'><span>1.6 设置原点</span></h4><p><span>可以通过：“顶部菜单 - 放置 - 设置画布原点 - 从图形中心格点”进行一键设置原点到图形中心。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Create-20200714173832.png" referrerpolicy="no-referrer" alt="picture 14"></p><p><span>设置原点在图形中央有利于复制粘贴的时候鼠标在图形中央，旋转的时候可以围绕中心。</span></p><p><span>原点不能在总图形外部区域设置，必须设置的全部图形区域的内部。</span></p><h4 id='17-保存符号库'><span>1.7 保存符号库</span></h4><p><span>你可以设置库的所有者，标题，链接，分类标签，描述等。建议填上链接和描述，可以帮助更多人使用你贡献的库，也可以记录该元件的使用方法，利于经验积累。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-336_SchematicLib_NewLibSave.png" referrerpolicy="no-referrer" alt="img"></p><p><span>到此一个元件已经完成绘制。你可以在左边“元件库 - 符号库 - 工作区”中找到。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Create-20200714174002.png" referrerpolicy="no-referrer" alt="picture 15"></p><p><strong><span>注意</span></strong><span>：</span></p><ul><li><em><span>绘制符号库可以参考 </span><a href='http://club.szlcsc.com/article/details_40621_1.html'><span>嘉立创EDA符号库与封装库创建规范.pdf</span></a><span>，减少错误发生。</span></em></li><li><em><span>符号图形请在原点上创建，尽量保持原点在元件中央，以便于元件翻转和旋转操作，元件放置在原理图画布时鼠标光标的位置就是原点的位置。若你偏离原点创建，在放置的时候，鼠标光标也是出现在原点处。</span></em></li><li><em><span>引脚端点务必放置在格点上，否则放置在原理图上后可能会连线困难。可以通过修改栅格和网格大小，进行调整引脚所需的格点位置</span></em></li></ul><h3 id='2-创建符号库子库'><span>2. 创建符号库子库</span></h3><p><span>当一个元件存在太多引脚时，把它全部画在一个库文件中将会非常耗费空间，所以可以通过创建子库（也称为多part器件，子母库，多部件符号等）。</span></p><p><span>当一个元件存在太多引脚时，把它全部画在一个库文件中将会非常耗费空间，所以可以通过创建子库（也称为多part器件，子母库，多部件符号等）来进行多符号组合该元件。所有子库合在一起时是一个完整的元件。每个子库均对应同一个封装，仅对应的焊盘编号不一样。</span></p><p><span>在前面 “</span><strong><span>原理图绘制：“元件库</span></strong><span>” 章节已经提到元件子库的放置。</span></p><p><span>创建方法：</span></p><ul><li><span>创建了一个库文件，</span></li><li><span>在 “</span><strong><span>元件库 &gt; 符号 &gt; 个人库</span></strong><span>” 中选中新建的库文件，</span></li><li><span>点击右键“添加子库”即可依次添加子库。</span></li></ul><p><span>如下图，每次添加子库均会产生一个名称带 .1 ，.2，.3 等的子库文件。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Create-20200714174357.png" referrerpolicy="no-referrer" alt="picture 16"></p><p><span>添加后并对每个子库进行双击或者点击下方的“编辑”按钮进行编辑图形，引脚及编号等属性，保存后即可完成一个含子库的符号库文件的创建。</span></p><p><strong><span>注意</span></strong><span>：</span></p><ul><li><em><span>含子库的元件仅在父库指定一个封装即可，若你为每一个子库均指定不同的封装，那么嘉立创EDA将保留最后一个指定的封装做为元件的封装。</span></em></li><li><em><span>子库的编号必须均与父库保持一致。</span></em></li></ul><p>&nbsp;</p><h3 id='3-符号向导'><span>3. 符号向导</span></h3><p><span>嘉立创EDA提供一个可快速创建符号库符号的向导工具。</span>
+<span>该工具可以在原理图和符号库编辑界面中使用。当在原理图中时，创建的符号不会保存在个人库中，仅在当前的原理图有效。</span></p><p><span>在工具栏点击打开，如果是在符号库文档中可以在 </span><strong><span>顶部菜单 - 工具 - 符号向导</span></strong><span> 打开。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Wizard-20200714190332.png" referrerpolicy="no-referrer" alt="picture 1"></p><h4 id='31-基础功能'><span>3.1 基础功能</span></h4><p><strong><span>仅输入引脚名称</span></strong></p><p><span>1.使用555定时器为例，当输入编号，名称，封装，选择样式，输入引脚编号和对应名称后，点击确定即可自动生成一个元件符号。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-069_Schematic_LibWizard-NE555.png" referrerpolicy="no-referrer" alt="img"></p><p><span>2.符号库向导目前暂时提供了三种图形样式： DIP, QPF 和 SIP 。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-070_Schematic_LibWizard-DIPQFPSIP.png" referrerpolicy="no-referrer" alt="img"></p><p><span>3.通过自定义引脚名字和封装，可以绘制方便识别的符号库，比如下方自定义的含EBC说明的3极管2N3055符号。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-071_Schematic_LibWizard-2N3055.png" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>输入引脚编号和名称</span></strong></p><p><span>你还可以同时输入引脚的编号和名称，如图引脚编号已设置为字母：</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-314_SchematicLib_Wizard2Clounms.png" referrerpolicy="no-referrer" alt="img"></p><h4 id='32-高级功能'><span>3.2 高级功能</span></h4><p><span>符号库向导支持高级功能，可以很方便地创建复杂大型的，并且利于使用的符号库。</span></p><p><span>1.下载符号库创建模板：</span><a href='https://image.lceda.cn/files/Schematic-Library-Wizard-Template.xlsx'><span>Schematic Symbol Wizard Template.xlsx</span></a></p><p><span>2.使用Excel或者WPS打开后，编辑各个引脚的属性与方位，然后仅复制引脚的内容，粘贴到向导编辑框中。提示：如果你想引脚之间产生空格，你可以如下图放置</span><code>*</code><span>符号做分隔。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-311_SchematicLib_SchematicLib-Wizard.png" referrerpolicy="no-referrer" alt="img"></p><p><span>3.当使用了高级功能后，向导会根据你粘贴的格式创建图形样式，上面选择的三种样式将会被忽略。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-312_SchematicLib_SchematicLib-Wizard-Finish.png" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>注意</span></strong><span>：</span></p><p><em><span>若你的输入格式不是一列，两列或者八列，将会报格式错误，无法生成图形符号。</span></em>
+<em><span>你可以使用空格分隔每一列数据。</span></em>
+<em><span>元件编号或名称不能存在空格，否则会被分开为两列。</span></em></p><p>&nbsp;</p><p>&nbsp;</p><h3 id='4-符号属性'><span>4. 符号属性</span></h3><h5 id='41-引脚属性'><span>4.1 引脚属性</span></h5><p><span>原理图符号的引脚是元件最重要的组成部分之一，它允许进行导线连接以构成整个电路。</span></p><p><span>在工具栏点击使用或者使用默认快捷键“P”。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Attributes-20200714171538.png" referrerpolicy="no-referrer" alt="picture 9"></p><h5 id='42-管脚方向'><span>4.2 管脚方向</span></h5><p><span>在放置在画布上之前，可以按空格键进行选择到想要的方向。</span></p><p><span>管脚的带圆圈端点是可进行导线连接的地方，所以该点正常需朝外放置。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-090_SchematicLibs_PinDot.png" referrerpolicy="no-referrer" alt="img"></p><p><span>如下图，左边图片是元件管脚的正确放置方式。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-091_SchematicLibs_PinDotPlacing.png" referrerpolicy="no-referrer" alt="img"></p><h5 id='43-管脚属性'><span>4.3 管脚属性</span></h5><p><span>当你选中一个管脚时，可以在右边的属性面板查看和修改它的属性。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Attributes-20200714171828.png" referrerpolicy="no-referrer" alt="picture 10"></p><ul><li><p><strong><span>方向</span></strong><span>：只支持 0°、90°、180° 和 270°。若你需要放置45°的引脚，你需要将引脚长度改为0，然后用画图工具画出45°线段。</span></p></li><li><p><strong><span>起始X，起始Y</span></strong><span>：引脚端点的坐标。你可编辑它的坐标到达你想要的位置。</span></p></li><li><p><strong><span>长度</span></strong><span>：引脚长度。</span></p></li><li><p><strong><span>名称</span></strong><span>：引脚的名字，如上图选中的引脚名字为“VCC”。</span></p></li><li><p><strong><span>编号</span></strong><span>：如上图选中的引脚编号为“8”。</span><strong><span>该编号与元件对应的封装的焊盘编号相对应，并且两者的编号需要一致。</span></strong><span>你还可以使用带字母的编号，如 A1, B1, C1, A2, B2等。</span></p></li><li><p><strong><span>仿真编号</span></strong><span>： 这些序号是将原理图符号上的引脚映射到Spice仿真或子电路中对应功能的编号。</span></p></li><li><p><strong><span>显示名字</span></strong><span>：可选择是否隐藏管脚名称。</span></p></li><li><p><strong><span>显示编号</span></strong><span>：可选择是否隐藏管脚编号。</span></p></li><li><p><strong><span>颜色</span></strong><span>：你可以单独为管脚设置颜色，该颜色会共同应用在管脚名字和编号上。你不能单独为它们进行设置颜色。</span></p></li><li><p><strong><span>圆圈</span></strong><span>：是否将一个圆圈添加到管脚的内端，以表示逻辑(或模拟)反相。</span></p></li><li><p><strong><span>时钟</span></strong><span>： 是否将一个“&gt;”添加到管脚的内端，以表示逻辑时钟输入。</span></p></li><li><p><strong><span>显示引脚</span></strong><span>：可设置改引脚是否隐藏。</span></p><ul><li><span>当隐藏了该引脚后，放置该元件在原理图中将看不见该引脚。</span></li><li><span>该隐藏功能只在原理图中体现，在符号库编辑界面下一直保持显示状态。</span></li><li><span>若在原理图想将它显示，只需在元件属性中“修改器件”将“隐藏的引脚”选项取消勾选即可。</span></li><li><span>若你设置一个引脚的电气特性为Power，名称设置为VCC，且已将它隐藏，那么在原理图中它会自动与VCC电源(网络标签)连接，该功能可以让使用了多模块元件的原理图变得更加整洁清晰。</span></li></ul></li><li><p><strong><span>电气特性</span></strong><span>：包含Undefined(未定义)、 Input(信号输入)、Output(信号输出)、 I/O(信号输入/输出)、 Power(电源)。该功能在仿真时用。默认是Undefined。</span></p></li><li><p><strong><span>字体及大小</span></strong><span>：你也可以很方便的每个管脚名字和编号设置字体与大小，便于识别。</span></p></li></ul><p><strong><span>注意</span></strong><span>：</span></p><ul><li><em><span>你可以很方便地使用鼠标对管脚编号和名字进行位置调整，但是当你需要翻转或旋转它们时，管脚整体都会被翻转或旋转，嘉立创EDA不允许单独翻转其中一个。</span></em></li><li><em><span>嘉立创EDA已经提供电气规则检查(ERC)，但是你的库文件需要仿真的话，仍然需要为它设置电气特性。</span></em></li></ul><p><strong><span>标签和描述</span></strong></p><p><span>通过为库文件添加标签可以为它进行分类，可以添加描述记录库的使用信息。</span></p><p><span>可通过</span><strong><span>元件库 &gt; 符号库 &gt; 个人库 &gt; 点击库文件 &gt; 右键 &gt; 修改</span></strong><span>进行修改。</span></p><h5 id='44-符号自定义属性'><span>4.4 符号自定义属性</span></h5><p><span>在符号库画布中，点击空白处可在右边属性面板查看元件属性，此处的元件属性与在原理图中单击元件时的元件自定义属性基本一致。在原理图中对元件修改的自定义属性仅对所在文档有效，在符号库画布中设置的自定义属性对该元件的每次放置有效。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Attributes-20200807081119.png" referrerpolicy="no-referrer" alt="picture 257"></p><ul><li><strong><span>加入BOM</span></strong><span>：决定这个符号是否在BOM中体现。</span></li><li><strong><span>转到PCB</span></strong><span>：是否转到PCB。如果设置为“否”，这个元件将不会在封装管理器里面出现，也不会被转到PCB里面。</span></li><li><strong><span>封装</span></strong><span>：击输入框，即可弹出封装管理器。并为元件库文件指定封装。封装管理器的使用请查看：原理图绘制 - 封装管理器章节。</span></li><li><strong><span>供应商</span></strong><span>：供应商名称，新建默认为Unknown。修改为其他供应商后，会自动出现供应商编号输入框。</span></li><li><strong><span>名称</span></strong><span>：元件库文件的名称。</span></li><li><strong><span>编号</span></strong><span>：默认的符号库预编号是 </span><strong><span>U?</span></strong><span> ，子库符号预编号是 </span><strong><span>U?.1</span></strong><span>。如果你创建了一个电阻你可以设置为 </span><strong><span>R?</span></strong><span>。</span></li><li><strong><span>制造商料号</span></strong><span>：制造商厂商的原始物料编码，可以自行修改。</span></li><li><strong><span>贡献者</span></strong><span>：显示你用户名，若用户在编辑器使用了你的库文件时会看到你的用户名。</span></li><li><strong><span>添加新参数</span></strong><span>：可新增你想要的参数，如你自己的物料编号。是否包含在BOM。</span></li></ul><h5 id='45-符号值作为名称显示在原理图'><span>4.5 符号值作为名称显示在原理图</span></h5><p><span>比如电阻阻值是 2KΩ，名称是 ABC，自己新建的符号库，放在原理图里面时，并不会显示 2KΩ 作为元件名称，而是 ABC。 直接修改 ABC 为 2KΩ 也可以达到目的，但是不是很合适。</span></p><p><span>嘉立创EDA目前没有提供常用的操作功能入口来实现符号值作为名称显示在原理图。</span></p><p><span>目前可以通过修改符号文件源码来实现。</span></p><p><span>如何进行：</span></p><p><span>1、完成电阻符号和属性的编辑。</span></p><p><span>2、打开文件源码。通过：顶部菜单 - 文件 - 嘉立创EDA文件源码。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Attributes-20200805115519.png" referrerpolicy="no-referrer" alt="picture 165"></p><p><span>3、添加或者修改 nameAlias 属性，如下图的符号放在原理图后，显示的元件名称将会是 1k。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Attributes-20200805115543.png" referrerpolicy="no-referrer" alt="picture 166"></p><p><span>4、修改后点击应用，保存。</span></p><p><span>可以直接双击常用库的电阻，打开符号编辑器后，查看文件源码获得示例。</span></p><p><span>后面嘉立创EDA将提供一个选项来实现这个功能。</span></p><p>&nbsp;</p><h3 id='5-编辑符号'><span>5. 编辑符号</span></h3><h4 id='51-个人库文件'><span>5.1 个人库文件</span></h4><p><span>编辑完成后保存 </span><code>CTRL+S</code><span> 会打开一个对话框，你可以点击查找库按钮，确定要创建的原理图是否已存在，还可以下拉选择所有者，也可以先创建团队，再通过下拉框把库放到团队中，再输入元件名称和描述：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Edit-20200714175450.png" referrerpolicy="no-referrer" alt="picture 18"></p><p><span>点击确认后，你可以在左边“元件库 - 符号库 - 工作区”中找到。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Create-20200714174002-1703577849423-165.png" referrerpolicy="no-referrer" alt="picture 15"></p><p><strong><span>标签</span></strong></p><p><span>你可以选中它，点击右键“修改”或者右下角 </span><strong><span>更多 &gt; 修改</span></strong><span> 为它添加一个标签，即该库的分类。添加后可以在符号库列表下出现，该元件将出现在该标签下，你可以给一个元件添加多个标签，但建议只添加一个即可。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/SchLib-Edit-20200714175736.png" referrerpolicy="no-referrer" alt="picture 19"></p><p><span>若你需要再次修改库文件，你需要点击下面的“编辑”按钮。</span></p><p><strong><span>收藏</span></strong></p><p><span>当你收藏了其他用户的库文件时，可以在收藏处找到，如果收藏的库文件有标签，则会自动生成标签。但是你无法修改它的信息。你可以通过“克隆”或“编辑保存”产生一个新的你个人的库文件。</span></p><h4 id='52-编辑其他库文件'><span>5.2 编辑其他库文件</span></h4><p><span>完成库文件的创建后需要在</span><strong><span>元件库</span></strong><span>中调出使用或者编辑，快捷键“SHIFT + F”调出。</span></p><p><span>会打开元件库搜索框，输入零件名称后搜索即可。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-026_Introduction_Parts.png" referrerpolicy="no-referrer" alt="img"></p><p><span>在搜索结果里可以选择你想要的类别，然后单击选择你所需的零件，再点击搜索框下方的“放置”即可放在画布中。你也可以直接移动鼠标至画布也可以进行放置。</span></p><p><strong><span>放置</span></strong><span>：一些经常使用的零件，无需收藏，直接点击放置即可放在画布中。</span></p><p><strong><span>编辑</span></strong><span>：这里可以编辑你自己的库文件；或者修改其它用户贡献的，系统库的库文件以适应你的需求，保存后会成你个人的库文件。</span></p><p><strong><span>更多</span></strong><span>：你可以对一些非个人库文件进行收藏和克隆，可以对自己的库文件进行修改(标题，描述，标签)，删除，添加子库等操作。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-027_Introduction_Parts-More.png" referrerpolicy="no-referrer" alt="img"></p><h4 id='53-编辑在原理图中的库'><span>5.3 编辑在原理图中的库</span></h4><p><span>你可以点中它，然后在点击电气工具的“组合/解散符号…”按钮，然后把它打散，修改后再将其组合回来即可。</span></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='附三创建封装库'><span>附三：创建封装库</span></h2><h3 id='1-创建封装库'><span>1. 创建封装库</span></h3><p><span>在创建封装前，建议先搜索系统和用户贡献的封装，优先使用系统封装，如果找到类似的，可以克隆，或者打开另存为自己的封装，在这个基础上修改，会比自己重新创建要快。</span></p><p><span>当然也可以使用嘉立创EDA提供的封装向导创建比较简单的封装类型。</span></p><h4 id='11-封装库工具'><span>1.1 封装库工具</span></h4><p><span>封装库工具的使用方法与PCB下的PCB工具一致，只是工具栏内少一些不需要的功能。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Create-20200713212724.png" referrerpolicy="no-referrer" alt="图 108"></p><p><span>嘉立创EDA提供了一个简单易用的封装向导，你可以使用它快速创建需要的封装。</span></p><p><span>入口：顶部工具栏 - 工具 - 封装向导。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Create-20210529174553.png" referrerpolicy="no-referrer" alt="picture 1"></p><p><span>封装向导的使用请看下一个章节。</span></p><h4 id='12-创建封装库'><span>1.2 创建封装库</span></h4><p><span>如果你需要一个PCB封装，但是嘉立创EDA的元件库中不存在，那么你可以自行进行创建。</span></p><p><span>创建封装库与创建符号库几乎一致，你可以通过</span><strong><span>：文件 - 新建 - 封装</span></strong><span> 建立。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Create-20200713212800.png" referrerpolicy="no-referrer" alt="图 109"></p><p><span>然后根据零件规格书来进行封装库绘制。</span></p><h4 id='13-绘制步骤'><span>1.3 绘制步骤</span></h4><ul><li><p><span>1、下载需要绘制的元件规格书。</span>
+<span>比如创建SOIC-8。</span><a href='https://image.lceda.cn/files/ON-Semicon-ON-UC2844BD1R2G_C77262.pdf'><span>如PDF：UC2844BD1R2G</span></a></p></li><li><p><span>2、阅读规格书，获取封装尺寸，方位信息。</span>
+<span>绘制封装时需要注意封装0度方向(0度就是你当前绘制的角度，当封装放置在PCB里面后它的角度在属性面板显示为0度)，利于SMT贴片。具体请查看：</span><a href='http://club.szlcsc.com/article/details_12157_1.html'><span>PCB封装库0度图形制作标准</span></a></p></li><li><p><span>3、查看封装的尺寸，引脚方向与极性，然后放置焊盘在画布上。需要根据自己实际情况适当调整焊盘的形状和大小。</span></p><ul><li><span>元件引脚方向，第一页，逆时针计数1到8脚。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-326_PCBLib_SOIC-8-PIN.png" referrerpolicy="no-referrer" alt="img"></li><li><span>元件极性，第一页，第十八页，方向为横向摆放。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-327_PCBLib_SOIC-8-StartPIN.png" referrerpolicy="no-referrer" alt="img"></li><li><span>根据十八页的尺寸图放置焊盘在顶层(有些金手指封装需要顶层和底层同时放置)。需要修改焊盘的属性，其中包括焊盘编号、类型、大小。先确定第一个焊盘的坐标，然后放置多个，使用顶部菜单的对齐工具进行平均分布。如果移动焊盘步进距离不合适可以在右边修改栅格大小。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-328_PCBLib_SOIC-8-Create.png" referrerpolicy="no-referrer" alt="img"></li></ul></li><li><p><span>4、绘制元件边框丝印。有时还可以在机械层，文档层放置对应标识图形。</span></p><ul><li><span>将层切换至顶层丝印。</span></li><li><span>使用导线，圆弧等工具绘制元件丝印。暂不支持直接绘制矩形丝印。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-329_PCBLib_Create-Silk.png" referrerpolicy="no-referrer" alt="img"></li></ul></li><li><p><span>5、在右边自定义属性填入封装名称，编号。</span></p><ul><li><span>保存并填写分类标签，描述等信息。</span></li><li><span>描述建议添加封装来源链接，封装尺寸信息。</span></li><li><span>否则自己或者其他用户搜索到你的封装也不能直接使用。</span></li><li><span>封装名称命名建议参考 </span><a href='http://club.szlcsc.com/article/details_40618_1.html'><span>嘉立创EDA封装库命名参考规范.pdf</span></a><span>，以使用科学的命名规则，方便管理和复用。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-330_PCBLib_Save.png" referrerpolicy="no-referrer" alt="img"></li></ul></li><li><p><span>6、完成绘制再使用尺寸检查工具检查封装尺寸，通过：顶部菜单 - 工具 - 尺寸检查。</span></p></li><li><p><span>7、设置原点。</span>
+<span>可以通过：“顶部菜单 - 放置 - 设置画布原点 - 从焊盘中心”进行设置。</span></p></li><li><p><span>8、检查无误后完成封装库的创建。</span></p></li></ul><p><strong><span>注意</span></strong><span>：</span></p><ul><li><em><span>放置的焊盘至少要一个中心点尽量在格线上，以免使用封装时导线连接焊盘困难的问题。</span></em></li><li><em><span>焊盘编号可以设置数字和字母，其需与元件的引脚编号一一对应，否则元件在指定了这个封装后在原理图将会在封装管理器报错，无法转为PCB。</span></em></li><li><em><span>焊盘编号通过鼠标放置可以递增，如果通过粘贴复制放置编号将保持不变。</span></em></li><li><em><span>绘制完封装后封装的坐标原点建议修改到封装正中央：以利于放置时旋转时保持鼠标在图形正中心；SMT机器在识别元件中心时减少元件调整工作。</span></em></li></ul><p><strong><span>其他事项</span></strong></p><ol start='' ><li><span>设置准确的网格和栅格尺寸很重要，一些精密的封装需要准确的尺寸，否则可能导致无法贴片。</span></li><li><span>请保持所有封装的边界线框，和文字在顶层丝印层绘制。放置封装在PCB时，嘉立创EDA会自动为封装的丝印切换至PCB对应的丝印层。</span></li><li><span>按 “CTRL+S” 保存你的封装，然后你可以在左边导航栏的 </span><strong><span>元件库 - 封装库 - 工作区</span></strong><span> 中找到它。</span></li><li><span>焊盘和过孔不能太小，需保持孔外径比孔内径 &gt;= 4mil。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-146_PCBLibs_NewPadRing.png" referrerpolicy="no-referrer" alt="img"></li></ol><h4 id='14-焊盘属性'><span>1.4 焊盘属性</span></h4><p><span>放置焊盘的快捷键是“P”。</span>
+<span>当你选中一个焊盘时，可以在右边属性面板修改它对应的属性，或者鼠标左键双击，弹出属性对话框来修改它的属性。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-144_PCBLibs_NewPad.png" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>编号</span></strong><span>：若不是单独放置的焊盘，该编号会与符号库文件的引脚编号相对应。</span></p><p><strong><span>形状</span></strong><span>： 圆形) , 矩形, 椭圆形和多边形。 如下图所示，选择多边形可以通过“编辑坐标点”创建复杂的形状。</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/lceda-145_PCBLibs_NewPadShape.png" referrerpolicy="no-referrer" alt="img"></p><p><strong><span>层</span></strong><span>：如果放置的焊盘是SMD类型或想它出现在单层，那么层请选择顶层或底层；若需要放置通孔类型焊盘，那么层请选择全部，焊盘将在顶层和底层出现。</span></p><p><strong><span>网络</span></strong><span>：如果PCB由原理图转来，此处会默认生成网络；若是单独放置的焊盘，此处为空。你可以无需为它设置网络，当走线连接到它时，将自动为它添加网络。</span></p><p><strong><span>宽和高</span></strong><span>： 当图形设置为圆时，宽和高会等值；当图形设置为多边形时，宽和高将不允许编辑。</span></p><p><strong><span>旋转角度</span></strong><span>：你可以设置你想要的任意角度。</span></p><p><strong><span>孔形状</span></strong><span>：内孔形状。有圆形，槽形。普通的DIP封装以及电容等都是圆形钻孔，但某些特殊元件的安装脚需要长方形、椭圆形或其他类型的通孔。这些长方形、椭圆形或者其他类型通孔都算作槽孔。</span></p><p><strong><span>孔直径</span></strong><span>：内孔直径。这是通孔焊盘的钻孔直径， 若是SMD类型焊盘请设置为0。</span></p><p><strong><span>中心X和中心Y</span></strong><span>：修改这两处数值可以修改焊盘在画布中的位置。</span></p><p><strong><span>金属化</span></strong><span> 该多层焊盘内壁是否有铜。当使用焊盘制作一个内壁无铜螺丝通孔时，需选择否。</span></p><p><strong><span>编辑坐标点</span></strong><span>：支持多边形焊盘坐标点编辑。</span></p><p><strong><span>注意</span></strong><span>：</span></p><ul><li><em><span>编辑坐标点仅在图形为多边形时有效；第一个坐标点在左下角，数值为 X Y，单位跟随画布。</span></em></li><li><em><span>焊盘编号通过鼠标放置可以递增，如果通过粘贴复制放置编号将保持不变。</span></em></li></ul><p>&nbsp;</p><p>&nbsp;</p><h3 id='2-封装向导'><span>2. 封装向导</span></h3><p><span>嘉立创EDA提供了一个简单易用的封装向导，你可以使用它快速创建需要的封装。</span></p><p><span>入口：顶部工具栏 - 工具 - 封装向导，或顶部工具栏“封装向导”按钮。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Create-20210529174553-1703578230192-197.png" referrerpolicy="no-referrer" alt="picture 1"></p><p><span>点击封装类型，显示封装向导具体输入参数，输入后点击预览即可在右边预览，点击应用更新画布的封装图形。</span></p><p><strong><span>使用步骤</span></strong><span>：</span></p><p><span>1、选择需要创建的封装类型。点击示意图进入。比如选择 SOIC_SOP 类型封装：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Footprint-Wizard_20220827_181844.png" referrerpolicy="no-referrer" alt="图 183"></p><p><span>2、根据规格书设置封装的物理尺寸。涉及外形长BL，外形宽BW，引脚跨距LS，引脚间距PP，引脚大小PW，如果有散热焊盘还有散热焊盘长EPL，焊盘宽EPW。</span></p><p><span>比如需要创建一个 SOP-8 的封装，规格书参考地址：</span><a href='https://atta.szlcsc.com/upload/public/pdf/source/20190812/C368696_AC859780F18C0A36686152ABD0615FD2.pdf'><span>C368696 APW7172</span></a></p><p><span>根据上图规格书可以得知该封装的物理尺寸如下，单位mm：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Footprint-Wizard_20220827_182014.png" referrerpolicy="no-referrer" alt="图 184"></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.52px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">引脚数量：8 &nbsp;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">焊盘形状：矩形 &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">引脚跨距(LS)：5.80 ~ 6.20。对应尺寸 E 的最小最大值 &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">本体长度(BW)：3.80 ~ 4.00。对应尺寸 E1 的最小最大值 &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">本体宽度(BL)：4.80 ~ 5.00。对应尺寸 D 的最小最大值 &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">引脚长度(PL)：0.40 ~ 1.27。对应尺寸 L 的最小最大值 &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">引脚宽度(PW)：0.31 ~ 0.51。对应尺寸 b 的最小最大值 &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">引脚间距(PP)：1.27。对应尺寸 b 的最小最大值</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 184px;"></div><div class="CodeMirror-gutters" style="display: none; height: 184px;"></div></div></div></pre><p><span>如果需要自定义热焊盘，和自定义锡膏层，可以勾选并设置相应的参数。第一引脚位置通常在坐下，封装原点通常在焊盘中央。</span></p><p><span>3、点击更新预览按钮</span></p><p><span>点击下方的更新预览按钮后，预览区会生成对应的封装内容。确认无误后，点应用即可在画布生成封装。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Footprint-Wizard_20220827_182129.png" referrerpolicy="no-referrer" alt="图 185"></p><p><span>开启元件相关的层就可以看到生成的引脚焊接大小和元件外型大小</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Footprint-Wizard_20220827_182151.png" referrerpolicy="no-referrer" alt="图 186"></p><p><strong><span>注意</span></strong><span>：</span></p><ul><li><span>向导填写的是封装的物理尺寸，并不是封装焊盘的尺寸，向导会根据填写的参数自动预留余量来生成焊盘。</span></li><li><span>封装向导提供的参数和生成的尺寸仅供参考，生成后的封装尺寸请自行根据规格书的建议值和实际生产的相关信息进行调整。</span></li></ul><p>&nbsp;</p><h3 id='3-编辑封装'><span>3. 编辑封装</span></h3><h4 id='31-在元件库里面打开编辑'><span>3.1 在元件库里面打开编辑</span></h4><p><span>完成库文件的创建后需要在</span><strong><span>元件库</span></strong><span>中调出使用或者编辑，快捷键 “SHIFT + F” 调出。</span></p><p><span>会打开元件库搜索框，输入零件名称后搜索即可。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-026_Introduction_Parts-1703578256633-208.png" referrerpolicy="no-referrer" alt="img"></p><p><span>在搜索结果里可以选择你想要的类别，然后单击选择你所需的零件，再点击搜索框下方的“放置”即可放在画布中。你也可以直接移动鼠标至画布也可以进行放置。</span></p><p><strong><span>放置</span></strong><span>：一些经常使用的零件，无需收藏，直接点击放置即可放在画布中。</span></p><p><strong><span>编辑</span></strong><span>：这里可以编辑你自己的库文件；或者修改其它用户贡献的，系统库的库文件以适应你的需求，保存后会成你个人的库文件。直接点击预览图也可以直接在编辑器打开选择的库。</span></p><p><strong><span>更多</span></strong><span>：你可以对一些非个人库文件进行收藏和克隆，可以对自己的库文件进行修改(标题，描述，标签)，删除，添加子库等操作。</span></p><h4 id='32-在pcb里面编辑'><span>3.2 在PCB里面编辑</span></h4><p><span>直接选中封装，然后点击“组合/解散…”功能，将封装解散后进行编辑，完成后再次点“组合/解散…”将其组合成一个封装即可。与符号库的组合解散功能一致。</span></p><p><span>注意：解散封装前，请确保封装的层属性已经切换到顶层，因为组合后的封装默认在顶层。</span></p><p>&nbsp;</p><h3 id='4-智能尺寸'><span>4. 智能尺寸</span></h3><p><span>嘉立创EDA提供了一个强大的智能尺寸工具，方便绘制封装。</span></p><p><span>入口</span><strong><span>：顶部菜单 - 工具 - 智能尺寸</span></strong></p><p><span>使用方法：</span></p><ul><li><span>1、放置焊盘在画布后，</span></li><li><span>2、点击顶部菜单的智能尺寸，可以进入智能尺寸绘制模式</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Smart-Dimension-20200713213852.png" referrerpolicy="no-referrer" alt="图 110"></li><li><span>3、分别点击不同焊盘上面的圆点</span></li><li><span>4、出现延伸尺寸标注，移动鼠标，左击确定延长标注的高度后，会弹窗等待输入两个焊盘之间的距离</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Smart-Dimension-20200713213941.png" referrerpolicy="no-referrer" alt="图 111"></li><li><span>5、确定后自动移动焊盘，并保持标注线联动</span></li><li><span>6、分别完成焊盘与焊盘之间的距离高度设置，可以快速进行焊盘定位。支持两两之间相互距离锁定，不因拖动而变动相对距离。点击标注文字，可以右边属性修改尺寸。</span></li><li><span>7、完成后再次点击菜单退出智能尺寸模式。</span></li></ul><p><strong><span>尺寸检查</span></strong></p><p><span>通过尺寸检查菜单，可以快速检查封装的具体尺寸。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCBLib-Smart-Dimension-20200713214401.png" referrerpolicy="no-referrer" alt="图 112"></p><p><span>右侧信息是左右焊盘，上下焊盘之间的间距；底部的信息是焊盘尺寸以及对应的焊盘编号。</span></p><p><span>移动鼠标在标注信息上可以高亮对应的焊盘。</span></p><p>&nbsp;</p><h3 id='5-导入3d模型'><span>5. 导入3D模型</span></h3><h4 id='51-导入3d文件'><span>5.1 导入3D文件</span></h4><p><span>嘉立创EDA支持导入3D模型，PCB在进行3D预览的时候可以查看炫酷的3D模型。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-384_PCB3DLib_3D-PCB.png" referrerpolicy="no-referrer" alt="img"></p><p><span>1、绘制或者下载 3D 模型：</span></p><p><span>注意：</span></p><ul><li><span>目前只支持 wrl(VRML) 和 obj 格式的 3D 模型。</span></li><li><span>wrl 可以直接导入，不需要压缩；如果你的 WRL 文件无法直接导入，请使用 FreeCAD 重新导出一份再导入。</span></li><li><span>obj 必须和 mtl 文件一起压缩到 zip 压缩包里面再导入，在下载 obj 文件时通常会一起带上 mtl 文件。</span></li><li><span>其他格式的3D文件未支持。</span></li><li><span>注意文件后缀名不能大写。</span></li></ul><p><span>2、在 “顶部菜单 - 新建 - 3D模型” 新建一个 3D 库</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/PCB-3DLib-Import-20200713212324.png" referrerpolicy="no-referrer" alt="图 105"></p><p><span>3、导入 3D 模型。你可以勾选需要导入的3D模型。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-386_PCB3DLib_Import-PCB-3DLib.png" referrerpolicy="no-referrer" alt="img"></p><p><span>如果你有多个 3D 模型，你可以把 WRL 文件压缩在一个 zip 压缩包里面导入，最好 10 个 WRL 文件一个压缩包，否则数量太多或压缩包太大会导入失败。导入的时候选择 ZIP 文件导入即可。</span></p><p><span>OBJ 格式的 3D 模型本身就是可以包含多个模型，不需要在压缩包里面包含多个。</span></p><p><span>4、打开 PCB 或者 PCB 库</span></p><p><span>5、找到“顶部菜单 - 工具 - 3D模型管理器”</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/PCB-3DLib-Import-20200713212456.png" referrerpolicy="no-referrer" alt="图 106"></p><p><span>6、为对应的封装指定导入的 3D 模型，与封装管理器操作基本一致。具体使用教程请查看：</span><a href='https://docs.lceda.cn/cn/PCB/3D-Model-Manager/index.html'><span>PCB - 3D模型管理器</span></a></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/lceda-388_PCB3DLib_3D-Model-Manager-Edit.png" referrerpolicy="no-referrer" alt="img"></p><p><span>7、调整 3D 模型与 PCB 封装的位置参数，点击更新</span></p><p><span>8、完成全部封装指定 3D 模型后，就可以开始整个 PCB 的 3D 预览了。</span></p><p>&nbsp;</p><h4 id='52-编辑3d库'><span>5.2 编辑3D库</span></h4><p><span>1、快捷键 SHIFT+F 打开元件库对话框</span></p><p><span>2、切换到 “3D模型”, 切换到“工作区”</span></p><p><span>3、右键可以对3D库编辑和删除</span>
+<img src="./PCB和硬件设计_基于立创EDA.assets/PCB-3DLib-Import-20200713212625.png" referrerpolicy="no-referrer" alt="图 107"></p><p><span>常用的官方库都会指定 3D 模型。目前需要自己指定到 PCB 或者 PCB 库里面。</span></p><p><span>以后会支持导出整个 PCB 3D 格式来做结构设计，以后还会直接支持导入 step 格式。</span></p><p>&nbsp;</p><h3 id='6-封装命名参考'><span>6. 封装命名参考</span></h3><p><span>嘉立创EDA提供了一个封装名命名参考方案 - 嘉立创EDA封装库命名参考规范.pdf: </span><a href='https://shimo.im/docs/0765b0f4a4704ecb/read'><span>在线阅读</span></a><span>， </span><a href='http://club.szlcsc.com/article/details_40618_1.html'><span>下载PDF</span></a></p><p><strong><span>前言</span></strong><span>：</span></p><p><span>多个工程师在建封装的时候，更需要统一的画库规则和封装命名规则，以确保库的一致性和封装的复用性。</span></p><p><strong><span>优势</span></strong><span>：</span></p><p><span>嘉立创EDA用户也可以根据这个规则：</span></p><ul><li><span>1、查找指定封装类型的元件；</span></li><li><span>2、根据这个规则创建自己的或者团队的或者公司封装；</span></li><li><span>3、快速复用嘉立创EDA官方的库。</span></li></ul><p><strong><span>亮点</span></strong><span>：</span></p><ul><li><span>1、在命名上采取了 “封装类型 </span><em><span>脚数 - 体宽 - 脚距 - 体长 - 脚跨距 - 一脚方位 - 极性方向</span></em><span> 系列名” 的规则，使用者可以快速明确封装大部分信息</span></li><li><span>2、覆盖了常用的大部分元件分类与封装类型，可以快速定位查询</span></li><li><span>3、不断根据新的元件或者封装类型扩展新的命名规则，持续更新维护</span></li><li><span>4、公开分发，免费使用</span></li></ul><p><strong><span>缺点</span></strong><span>：</span></p><ul><li><span>部分封装类型命名的标题过长</span></li></ul><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h1 id='硬件电路设计'><span>硬件电路设计</span></h1><p><span>VCC是电路（circuit）的供电电压，VDD是芯片（device）的工作电压。VSS、GND是地。</span></p><p><span>HDR-M是排针。HDR-F是排母。</span></p><p><span>Vr：反向工作峰值电压 。Vf：正向导通电压。</span></p><h2 id='电容'><span>电容</span></h2><p><strong><span>电容接法</span></strong><span>：</span><strong><span>有极性电容</span></strong><span>正极+接电源正极+，负极-接电源负极-。</span><strong><span>无极性电容不分正负</span></strong><span>。</span></p><ul><li><span>无极性电容和有极性电容没什么区别，只要容量、耐压等符合要求就可以替换。</span></li></ul><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240205145426991.png" alt="image-20240205145426991" style="zoom:50%;" /><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240205145616405.png" alt="image-20240205145616405" style="zoom:33%;" /><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240205145706781.png" referrerpolicy="no-referrer" alt="image-20240205145706781"></p><p><strong><span>耐压值</span></strong><span>：电解电容（上百V</span><sub><span>max</span></sub><span>）&gt; 贴片电容（几十V</span><sub><span>max</span></sub><span>）&gt; 钽电容（16V</span><sub><span>max</span></sub><span>）</span></p><p><strong><span>容值</span></strong><span>：电解电容(无上限) &gt; 钽电容（几十上百uf）&gt; 贴片电容（22uf以下）</span></p><p><strong><span>体积</span></strong><span>：电解电容 &gt; 钽电容 &gt; 贴片电容</span></p><p><strong><span>特性</span></strong><span>：电解电容受温度影响，钽电容不受。贴片电容在高频电路中特性较好</span></p><p>&nbsp;</p><h2 id='复位电路设计'><span>复位电路设计</span></h2><h3 id='低电平复位'><span>低电平复位</span></h3><p><span>二极管是起着在断电的情况下能够很快的将电容两端的电压释放掉，为下次上电复位准备。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/format,png.png" referrerpolicy="no-referrer" alt="img"></p><p>&nbsp;</p><h3 id='高电平复位'><span>高电平复位</span></h3><p><img src="./PCB和硬件设计_基于立创EDA.assets/format,png-1706421190163-6.png" alt="img" style="zoom:67%;" /><span>               </span><img src="./../../../笔记和代码/Typora/PCB设计/PCB设计_基于立创EDA V6.0 .assets/image-20240128141053083-1706422255321-9.png" alt="image-20240128141053083" style="zoom: 67%;" /></p><h2 id='电池电量检测'><span>电池电量检测</span></h2><p><a href='https://github.com/HwzLoveDz/ESP32-ADC-sense-battery-voltage?tab=readme-ov-file#esp32-adc-%E5%AF%B9%E5%99%AA%E5%A3%B0%E9%9D%9E%E5%B8%B8%E6%95%8F%E6%84%9F%E5%AF%BC%E8%87%B4-adc-%E8%AF%BB%E6%95%B0%E5%AD%98%E5%9C%A8%E8%BE%83%E5%A4%A7%E5%B7%AE%E5%BC%82%E6%A0%B9%E6%8D%AE%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E5%8F%AF%E4%BB%A5%E5%B0%86%E6%97%81%E8%B7%AF%E7%94%B5%E5%AE%B9%E4%BE%8B%E5%A6%82100-nf%E9%99%B6%E7%93%B7%E7%94%B5%E5%AE%B9%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%AD%A3%E5%9C%A8%E4%BD%BF%E7%94%A8%E7%9A%84adc%E8%BE%93%E5%85%A5%E7%84%8A%E7%9B%98%E4%BB%A5%E6%9C%80%E5%A4%A7%E9%99%90%E5%BA%A6%E5%9C%B0%E9%99%8D%E4%BD%8E%E5%99%AA%E5%A3%B0'><span>ESP32电池电量检测代码</span></a></p><p><a href='https://blog.csdn.net/qq_33862616/article/details/107461001' target='_blank' class='url'>https://blog.csdn.net/qq_33862616/article/details/107461001</a></p><p><span>将100nf电容连接到正在使用的芯片ADC引脚上，减少噪声。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzODYyNjE2,size_16,color_FFFFFF,t_70.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><h2 id='按键检测电路设计'><span>按键检测电路设计</span></h2><p><a href='https://cloud.tencent.com/developer/article/2218558' target='_blank' class='url'>https://cloud.tencent.com/developer/article/2218558</a></p><p><span>按键输入：默认上拉，按键按下时为低电平。</span></p><p><span>51单片机上电后：引脚默认高阻态，有外围电路时引脚默认为高电平。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/52284b1619fb28aae407f882ab39f9f9.jpg" alt="img" style="zoom:67%;" /></p><p><span>按键硬件消抖：在按键旁并联一个电容，如100nf。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/v2-da03122fa067306ec42547bc3aad2782_720w.webp" referrerpolicy="no-referrer" alt="img"></p><h2 id='nmos开关电路'><span>NMOS开关电路</span></h2><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240206191916046.png" alt="image-20240206191916046" style="zoom:67%;" /></p><h2 id='数据传输协议电路设计'><span>数据传输协议电路设计</span></h2><h3 id='iic电路设计'><span>IIC电路设计</span></h3><p><strong><span>SCL、SDA引脚需要通过10K电阻上拉。</span></strong></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240127235746435.png" alt="image-20240127235746435" style="zoom:50%;" /></p><h2 id='io扩展芯片'><span>IO扩展芯片</span></h2><h3 id='mcp23017mcp23s17'><span>MCP23017/MCP23S17</span></h3><p><a href='https://www.waveshare.net/w/upload/b/b3/MCP23017-Datasheet.pdf'><span>MCP23017/MCP23S17 Data Sheet (waveshare.net)</span></a></p><p><a href='https://www.waveshare.net/w/upload/3/31/MCP23017-IO-Expansion-Board-user-manual-cn.pdf'><span>用户使用手册user-manual-cn.pdf (waveshare.net)</span></a></p><p><a href='https://www.waveshare.net/w/upload/5/54/MCP23017-IO-Expansion-Board-Schematic.pdf'><span>原理图Schematic</span></a></p><p><strong><span>1. 该芯片通过IIC协议（MCP23017）或SPI协议（MCP23S17）扩展单片的IO口。</span></strong></p><p><strong><span>2. 芯片供电电压1.8V-5.5V兼容3.3V和5V。</span></strong><span>电源滤波：一个100nf电容，两端接VDD和VSS。</span></p><p><strong><span>3. 一个芯片可以提供16个IO扩展</span></strong><span>（GPA0-GPA7,GPB0-GPB7），GPA7、GPB7仅能输出。其他引脚默认输入。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240128000112188.png" alt="image-20240128000112188" style="zoom:67%;" /></p><p><strong><span>4. 有两个中断引脚（INTA、INTB）。</span></strong><span>INTA、INTB分别管理A、B的中断，可分别运行或接在一起运行。两个中断引脚可接单片机的同一个GPIO。若MCP23017 模块的 PA7，PB7 作为中断输入引脚，当 PA7 或 PB7 输入为下降沿时，INTA，INTB 也将输出下降沿。</span></p><p><strong><span>5. 有一个低电平复位引脚。</span></strong><span>复位电路设计：</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240127235917783.png" alt="image-20240127235917783" style="zoom:50%;" /></p><p><strong><span>6. 三个地址引脚（A0-A2）配置该芯片的地址。</span></strong><span>使得一个单片机的IIC总线上</span><strong><span>最多可以挂载8个MCP芯片</span></strong><span>（0-7），即</span><strong><span>最多扩展128个IO口</span></strong><span>。（tips： IIC协议是通过地址不同来判断给哪个器件传送数据。多个设备的SCL,SDA引脚并联在单片机的IIC引脚上（共用）。）</span></p><p><span>该</span><strong><span>器件IIC地址格式</span></strong><span>（全拉高0x27~全拉低0x20）</span><strong><span>通过10K电阻上、下拉</span></strong><span>。</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/image-20240128000808181.png" alt="image-20240128000808181" style="zoom:67%;" /></p><p><strong><span>地址自由配置</span></strong><span>设计电路：（注意地址引脚要</span><strong><span>通过10K电阻上拉</span></strong><span>，该方式默认地址0x27）</span></p><p><img src="./PCB和硬件设计_基于立创EDA.assets/MCP23017-i2c-address.jpg" referrerpolicy="no-referrer" alt="MCP23017-i2c-address.jpg"></p><p>&nbsp;</p><h1 id='附嘉立创生产极限工艺说明'><span>附：嘉立创生产极限工艺说明</span></h1><p><span>过孔：最小外径24mil，内径12mil。</span></p><p><span>2.54mm排针（这种类型的插针通孔）极限：孔外径60mil，内径36mil。</span></p><p><span>盘中孔：支持。</span></p><p><span>导线宽度最小6mil，可在设计规则里限制最小线宽。</span></p><p><strong><span>盲埋孔：</span></strong><span>可在设计规则里添加（从哪层到哪层），打孔时切换。</span></p><p><strong><span>焊盘连接</span></strong><span>：焊盘与铺铜的连接样式。直连：直接与焊盘连接；发散：与焊盘产生十字连接。</span></p><p><span>丝印字体大小：目前最小还可视化线宽为6mil，高度为40mil。</span></p></div></div>
+</body>
+</html>
