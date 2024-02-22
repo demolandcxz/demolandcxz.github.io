@@ -1,0 +1,628 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Demoland</title>
+<!-- Stylesheets -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+
+<!--Favicon-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+<link rel="icon" href="images/favicon.png" type="image/x-icon">
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+</head>
+
+<body>
+
+<div class="page-wrapper default-version">
+ 	
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <div class="page-background">
+        <div class="image-1"><img src="images/icons/shape/icon-1.png" alt=""></div>
+        <div class="image-7"><img src="images/icons/shape/icon-7.png" alt=""></div>
+        <canvas id="canvas"></canvas>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class="mobile-menu">
+        <div class="container">
+            <!--Nav Outer-->
+            <div class="nav-outer clearfix">
+                <div class="logo"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+                <!-- Main Menu -->
+                <nav class="main-menu">
+                    <div class="navbar-header">
+                        <!-- Toggle Button -->      
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+<!-- ***********手机右上角目录引导******************手机右上角目录引导**********************手机右上角目录引导***************** 手机右上角目录引导************************手机右上角目录引导*************-->                
+                    <div class="navbar-collapse collapse scroll-nav clearfix">
+                        <ul class="navigation clearfix">
+                            
+                            <li class="current"><a href="#home">主页</a></li>
+                            <li><a href="#about">关于</a></li>
+                            <li><a href="#services">技能</a></li>
+                            <li><a href="#blog">博客</a></li>
+                            <li><a href="#work">相册</a></li>
+                            <li><a href="#resume">简历</a></li>
+                            <li><a href="#contact">联系</a></li>
+
+                         </ul>
+                    </div>
+                </nav>
+                <!-- Main Menu End-->                        
+            </div>
+            <!--Nav Outer End-->            
+        </div>
+    </div>
+<!-- ***********点击侧边栏******************点击侧边栏**********************点击侧边栏***************** 点击侧边栏 ************************点击侧边栏***********************点击侧边栏**********-->
+    <div class="card-outer">
+        <div class="scroll-box">
+            <div class="container" data-animation-in="fadeInLeft" data-animation-out="fadeOutLeft">
+                <div class="card-wrapper">
+                    <div class="author-info" style="background-image:url(images/background/3.jpg)">
+                        <div class="image"><img src="images/resource/user.png" alt=""></div>
+                        <div class="author">
+                            <h3>Demoland</h3>
+                            <div class="designation">
+                                嗨 我是
+                                <div class="typing-title">
+                                    <p>一名 <strong>机械设计师</strong></p>
+                                    <p>一名 <strong>电子爱好者</strong></p>
+                                    <p>一名 <strong>科技大镖客</strong></p>
+                                </div>
+                                <span class="typed-title"></span>
+                            </div>
+                        </div>
+                        <div class="link-btn">
+                            <a target="_blank" href="https://space.bilibili.com/485921287" class="theme-btn btn-style-one">我的Bilibili</a>
+                        </div>
+                        <ul class="social-icon-two">
+                            <li><a href="#"><span class="fa fa-battery-full"></span></a></li>
+                            <li><a target="_blank" href="https://github.com/demolandcxz"><span class="fa fa-github"></span></a></li>
+                            <li><a target="_blank" href="Typora/加QQ.html"><span class="fa fa-qq"></span></a></li>
+                            <li><a target="_blank" href="Typora/加微信.html"><span class="fa fa-wechat"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="card-inner-box">
+                        <header class="header wow fadeInLeft" data-wow-duration="1.5s">
+                            <ul class="main-menu">
+                                <li class="active home"><a class="logo" href="#home"><img src="images/logo.png" alt=""></a></li>
+                                <li><a href="#about"><i class="flaticon-social"></i>关于</a></li>
+                                <li><a href="#services"><i class="flaticon-layers-1"></i>技能</a></li>
+                                <li><a href="#blog"><i class="flaticon-blog"></i>博客</a></li>
+                                <li><a href="#work"><i class="flaticon-tools"></i>作品</a></li>
+                                <li><a href="#resume"><i class="flaticon-curriculum"></i>简历</a>
+                                </li><li><a href="#contact"><i class="flaticon-send-mail"></i>联系</a></li>
+                            </ul>
+                        </header>
+
+<!--***********首页******************首页**********************首页***************** 首页 ************************首页***********************首页******************首页************-->
+                        <div class="card-home card-item active" id="home" style="background-image:url(images/background/1.jpg)">
+
+                            <div class="card-inner wow fadeInUp" data-wow-duration="2s">
+                                <div class="image"><img src="images/resource/user.png" alt=""></div>
+                                <div class="author">
+                                    <h3>Demoland</h3>
+                                    <div class="designation">
+                                        嗨 我是
+                                        <div class="typing-title">
+                                            <p>一名 <strong>机械设计师</strong></p>
+                                            <p>一名 <strong>电子爱好者</strong></p>
+                                            <p>一名 <strong>科技大镖客</strong></p>
+                                        </div>
+                                        <span class="typed-title"></span>
+                                    </div>
+                                </div>
+                                <div class="text">莫把丹青等闲看 无声诗里颂千秋</div>
+                                <div class="link-btn">
+                                    <a target="_blank" href="https://space.bilibili.com/485921287" class="theme-btn btn-style-one">我的Bilibili</a>
+                                    <a href="#" class="theme-btn btn-style-two">联系我</a>
+                                </div>
+                                <ul class="social-icon-two">
+                                  <li><a href="#"><span class="fa fa-battery-full"></span></a></li>
+                                  <li><a target="_blank" href="https://github.com/demolandcxz"><span class="fa fa-github"></span></a></li>
+                                  <li><a target="_blank" href="Typora/我的QQ.html"><span class="fa fa-qq"></span></a></li>
+                                  <li><a target="_blank" href="Typora/我的微信.html"><span class="fa fa-wechat"></span></a></li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        <!-- end item -->
+
+<!--*********关于******************关于**********************关于************** 关于 **************************关于***************************关于*****************************关于*****************-->
+                        <div class="card-about card-item" id="about" style="background-image:url(images/background/2.jpg)">
+                            <div class="card-inner">
+                                <h4 class="title">关于</h4>
+                                <div class="text">遇山上山，遇海入海</div>
+                                <div class="info-list">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="list-style-one">
+                                                <li><strong>名字:</strong>  Demoland</li>
+                                                <li><strong>电话:</strong>      -    </li>
+                                                <li><strong>地址:</strong>  浙江宁波-中国</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="list-style-one">
+                                                <li><strong>邮箱:</strong>  demolandcxz@gmail.com</li>
+                                                <li><strong>职业:</strong>  大三在读</li>
+                                                <li><strong>认证:</strong>  中望-3D设计工程师</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>                                    
+                                <h4 class="title">技能</h4>
+                                <div class="row">
+                                    <!-- About Block -->
+                                    <div class="skill-block col-md-3 col-sm-4 col-xs-6">
+                                        <div class="inner-box">
+                                            <div class="graph-outer">
+                                                <input type="text" class="dial" data-fgColor="#9147ff" data-bgColor="#f5f5f5" data-width="90" data-height="90" data-linecap="normal"  value="75">
+                                                <div class="inner-text count-box"><span class="count-text" data-stop="75" data-speed="2000"></span>%</div>
+                                            </div>
+                                            <h3>机械设计</h3>
+                                        </div>
+                                    </div>
+
+                                    <!-- About Block -->
+                                    <div class="skill-block col-md-3 col-sm-4 col-xs-6">
+                                        <div class="inner-box">
+                                            <div class="graph-outer">
+                                                <input type="text" class="dial" data-fgColor="#ff5e7e" data-bgColor="#f5f5f5" data-width="90" data-height="90" data-linecap="normal"  value="75">
+                                                <div class="inner-text count-box"><span class="count-text" data-stop="75" data-speed="2000"></span>%</div>
+                                            </div>
+                                            <h3>嵌入式硬件开发</h3>
+                                        </div>
+                                    </div>
+
+                                    <!-- About Block -->
+                                    <div class="skill-block col-md-3 col-sm-4 col-xs-6">
+                                        <div class="inner-box">
+                                            <div class="graph-outer">
+                                                <input type="text" class="dial" data-fgColor="#ffc713" data-bgColor="#f5f5f5" data-width="90" data-height="90" data-linecap="normal"  value="75">
+                                                <div class="inner-text count-box"><span class="count-text" data-stop="50" data-speed="2000"></span>%</div>
+                                            </div>
+                                            <h3>PCB设计</h3>
+                                        </div>
+                                    </div>
+
+                                    <!-- About Block -->
+                                    <div class="skill-block col-md-3 col-sm-4 col-xs-6">
+                                        <div class="inner-box">
+                                            <div class="graph-outer">
+                                                <input type="text" class="dial" data-fgColor="#51dbc3" data-bgColor="#f5f5f5" data-width="90" data-height="90" data-linecap="normal"  value="75">
+                                                <div class="inner-text count-box"><span class="count-text" data-stop="50" data-speed="2000"></span>%</div>
+                                            </div>
+                                            <h3>HarmonyOS应用开发</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                        
+                            </div>
+                        </div>
+                        <!-- end item -->
+
+<!--************技能**********************技能*************************技能********************* 技能 ************************技能*******************技能********************技能*********8-->
+                        <div class="card-services card-item" id="services" style="background-image:url(images/background/2.jpg)">
+                            <div class="card-inner">
+                                <h4 class="title">技能</h4>
+                                <div class="row">
+                                    <div class="services-block col-md-6">
+                                        <div class="inner-box">
+                                            <div class="icon-box"><span class="icon flaticon-pen-tool"></span></div>
+                                            <h4><a href="demolandcxz.github.io/index.html">机械设计</a></h4>
+                                            <div class="text">多次获得机械建模省级、国家级奖项，Bilibili账号拥有六千粉丝，中望设计工程师</div>
+                                        </div> 
+                                    </div>
+                                    <div class="services-block col-md-6">
+                                        <div class="inner-box">
+                                            <div class="icon-box"><span class="icon flaticon-folder"></span></div>
+                                            <h4><a href="demolandcxz.github.io/index.html">嵌入式开发</a></h4>
+                                            <div class="text">掌握51、STM32、ESP32和FreeRTOS操作系统开发</div>
+                                        </div> 
+                                    </div>
+                                    <div class="services-block col-md-6">
+                                        <div class="inner-box">
+                                            <div class="icon-box"><span class="icon flaticon-computer"></span></div>
+                                            <h4><a href="demolandcxz.github.io/index.html">PCB设计</a></h4>
+                                            <div class="text">开发了十余个PCB设计项目，撰写了一篇数万字文档</div>
+                                        </div> 
+                                    </div>
+                                    <div class="services-block col-md-6">
+                                        <div class="inner-box">
+                                            <div class="icon-box"><span class="icon flaticon-layers-1"></span></div>
+                                            <h4><a href="demolandcxz.github.io/index.html">HarmonyOS鸿蒙应用开发</a></h4>
+                                            <div class="text">撰写了一篇数万字开发文档</div>
+                                        </div> 
+                                    </div>
+                                    <div class="services-block col-md-6">
+                                        <div class="inner-box">
+                                            <div class="icon-box"><span class="icon flaticon-web-design"></span></div>
+                                            <h4><a href="demolandcxz.github.io/index.html">Linux</a></h4>
+                                            <div class="text"></div>
+                                        </div> 
+                                    </div>
+                                    <div class="services-block col-md-6">
+                                        <div class="inner-box">
+                                            <div class="icon-box"><span class="icon flaticon-photo-camera"></span></div>
+                                            <h4><a href="demolandcxz.github.io/index.html">AI</a></h4>
+                                            <div class="text"> </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end item -->
+          
+<!--***************博客*************博客****************博客*********************** 博客 *************************博客*****************************博客*********************************-->
+                        <div class="card-blog card-item" id="blog" style="background-image:url(images/background/2.jpg)">
+                            <div class="card-inner">
+                                <h4 class="title">博客</h4>
+                             <!-- 博客blog1**********博客blog1**********博客blog1**********博客blog1********** 博客blog1-->
+                                <div class="news-block">
+                                    <div class="inner-box">
+                                        <div class="image">
+                                            <img src="images/resource/blog-1.jpg" alt="">
+                                            <div class="overlay">
+                                                <a target="_blank" class="link-btn" href="Typora/HarmonyOS.html">
+                                                    <i class="fa fa-link"></i>
+                                                </a>                                
+                                            </div>
+                                        </div>
+                                     
+                                        <div class="date"><strong>24</strong> <br>二月</div>
+                                        <div class="lower-content">
+                                            <h4><a target="_blank" href="Typora/HarmonyOS.html">HarmonyOS鸿蒙终端应用开发</a></h4>
+                                            <div class="post-meta">by Demoland  /  <span>Programming</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                             <!-- 博客blog2**********博客blog2**********博客blog2**********博客blog2**********博客blog2-->
+                                <div class="news-block">
+                                    <div class="inner-box">
+                                        <div class="image">
+                                            <img src="images/resource/blog-2.jpg" alt="">
+                                            <div class="overlay">
+                                                <a target="_blank" class="link-btn" href="Typora/ESP32.html">
+                                                    <i class="fa fa-link"></i>
+                                                </a>                                
+                                            </div>
+                                        </div>
+                                     
+                                        <div class="date"><strong>23</strong> <br>十月</div>
+                                        <div class="lower-content">
+                                            <h4><a target="_blank" href="Typora/ESP32.html">ESP32开发</a></h4>
+                                            <div class="post-meta">by Demoland  /  <span>Programming</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                             <!-- 博客blog3**********博客 blog3**********博客blog3**********博客blog3**********博客 blog3-->
+                                <div class="news-block">
+                                    <div class="inner-box">
+                                        <div class="image">
+                                            <img src="images/resource/blog-3.jpg" alt="">
+                                            <div class="overlay">
+                                                <a target="_blank"  class="link-btn" href="Typora/PCB和硬件设计.html">
+                                                    <i class="fa fa-link"></i>
+                                                </a>                                
+                                            </div>
+                                        </div>
+                                        
+                                     <div class="date"><strong>24</strong> <br>一月</div>
+                                        <div class="lower-content">
+                                            <h4><a target="_blank"  href="Typora/PCB和硬件设计.html">PCB和硬件设计</a></h4>
+                                            <div class="post-meta">by Demoland  /  <span>Designing</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <!-- end item -->
+                     
+<!--**********相册******************相册**********************相册********************** 相册 *********************相册*************************相册*****************************相册****-->
+                        <div class="card-projects card-item" id="work" style="background-image:url(images/background/2.jpg)">
+                            <div class="card-inner">
+                                <h5 class="title">相册</h5>
+                                <div class="row">
+                                    <div class="projects-block col-md-6">
+                                        <div class="inner-box">
+                                            <figure class="image">
+                                                <img src="images/gallery/1.jpg" alt="image">
+                                                <div class="overlay">
+                                                    <a class="lightbox-image option-btn" title="Image Caption Here" data-fancybox-group="example-gallery" href="images/gallery/1.jpg">
+                                                        <i class="fa fa-search"></i>
+                                                    </a>                                
+                                                </div>
+                                            </figure>
+                                            <div class="caption-title">
+                                                <h3><a href="#">碧云龙</a></h3>
+                                                <span>3D打印</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="projects-block col-md-6">
+                                        <div class="inner-box">
+                                            <figure class="image">
+                                                <img src="images/gallery/2.jpg" alt="image">
+                                                <div class="overlay">
+                                                    <a class="lightbox-image option-btn" title="图片说明" data-fancybox-group="example-gallery" href="images/gallery/2.jpg">
+                                                        <i class="fa fa-search"></i>
+                                                    </a>                                
+                                                </div>
+                                            </figure>
+                                            <div class="caption-title">
+                                                <h3><a href="#">瓦力机器人</a></h3>
+                                                <span>3D打印</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="projects-block col-md-6">
+                                        <div class="inner-box">
+                                            <figure class="image">
+                                                <img src="images/gallery/3.jpg" alt="image">
+                                                <div class="overlay">
+                                                    <a class="lightbox-image option-btn" title="图片说明" data-fancybox-group="example-gallery" href="images/gallery/3.jpg">
+                                                        <i class="fa fa-search"></i>
+                                                    </a>                                
+                                                </div>
+                                            </figure>
+                                            <div class="caption-title">
+                                                <h3><a href="#">东钱湖</a></h3>
+                                                <span>宁波市东钱湖-街景</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="projects-block col-md-6">
+                                        <div class="inner-box">
+                                            <figure class="image">
+                                                <img src="images/gallery/4.jpg" alt="image">
+                                                <div class="overlay">
+                                                    <a class="lightbox-image option-btn" title="图片说明" data-fancybox-group="example-gallery" href="images/gallery/4.jpg">
+                                                        <i class="fa fa-search"></i>
+                                                    </a>                                
+                                                </div>
+                                            </figure>
+                                            <div class="caption-title">
+                                                <h3><a href="#">河北省博物院</a></h3>
+                                                <span>石家庄市长安区-博物院</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="projects-block col-sm-6">
+                                        <div class="inner-box">
+                                            <figure class="image">
+                                                <img src="images/gallery/5.jpg" alt="image">
+                                                <div class="overlay">
+                                                    <a class="lightbox-image option-btn" title="图片说明" data-fancybox-group="example-gallery" href="images/gallery/5.jpg">
+                                                        <i class="fa fa-search"></i>
+                                                    </a>                                
+                                                </div>
+                                            </figure>
+                                            <div class="caption-title">
+                                                <h3><a href="#">风景</a></h3>
+                                                <span>浙江省宁波市-晨曦</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="projects-block col-sm-6">
+                                        <div class="inner-box">
+                                            <figure class="image">
+                                                <img src="images/gallery/6.jpg" alt="image">
+                                                <div class="overlay">
+                                                    <a class="lightbox-image option-btn" title="图片说明" data-fancybox-group="example-gallery" href="images/gallery/6.jpg">
+                                                        <i class="fa fa-search"></i>
+                                                    </a>                                
+                                                </div>
+                                            </figure>
+                                            <div class="caption-title">
+                                                <h3><a href="#">风景</a></h3>
+                                                <span>浙江省宁波市-晨曦</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end item -->
+
+<!--************简历**********************简历******************************简历***************************** 简历 ***************************简历************************简历*****************************简历********-->
+                        <div class="card-resume card-item" id="resume" style="background-image:url(images/background/2.jpg)">
+                            <div class="card-inner">
+                                <h4 class="title">简历</h4>
+                                <div class="row clearfix">
+                                    <!--最近 最近 最近 最近 Column-->
+                                    <div class="timeline-column col-md-6 col-sm-12 col-xs-12">
+                                        <div class="inner">
+                                            <div class="col-header"><div class="icon-box"><div class="icon-inner"><div class="icon"><span class="flaticon-book"></span></div></div></div> <h2>最近(已隐藏)</h2></div>
+                                            
+                                            <!--Timeline Block-->
+                                            <div class="timeline-block">
+                                                <div class="inner-box">
+                                                    <h4> ------- </h4>
+                                                    <div class="date"><span> ------- </span> ------- </div>
+                                                    <div class="text"> ------- </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Timeline Block-->
+                                            <div class="timeline-block">
+                                                <div class="inner-box">
+                                                    <h4> ------- </h4>
+                                                    <div class="date"><span> ------- </span> ------- </div>
+                                                    <div class="text"> ------- </div>
+                                                </div>
+                                            </div>
+
+                                            <!--Timeline Block-->
+                                            <div class="timeline-block">
+                                                <div class="inner-box">
+                                                    <h4> ------- </h4>
+                                                    <div class="date"><span> ------- </span> ------- </div>
+                                                    <div class="text"> ------- </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <!--经历 经历 经历 经历Column-->
+                                    <div class="timeline-column col-md-6 col-sm-12 col-xs-12">
+                                        <div class="inner">
+                                            <div class="col-header"><div class="icon-box"><div class="icon-inner"><div class="icon"><span class="flaticon-case"></span></div></div></div> <h2>经历(已隐藏)</h2></div>
+                                            
+                                            <!--Timeline Block-->
+                                            <div class="timeline-block">
+                                                <div class="inner-box">
+                                                    <h4> ------- </h4>
+                                                    <div class="date"><span> ------- </span> ------- </div>
+                                                    <div class="text"> ------- </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="timeline-block">
+                                                <div class="inner-box">
+                                                    <h4> ------- </h4>
+                                                    <div class="date"><span> ------- </span> ------- </div>
+                                                    <div class="text"> ------- </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="timeline-block">
+                                                <div class="inner-box">
+                                                    <h4> ------- </h4>
+                                                    <div class="date"><span> ------- </span> ------- </div>
+                                                    <div class="text"> ------- </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end item -->
+                     
+<!--********************联系*******************联系*********************** 联系 ***********************联系******************联系**************联系*******************************88-->
+                        <div class="card-contact card-item" id="contact" style="background-image:url(images/background/2.jpg)">
+                            <div class="card-inner">
+                                <h3 class="title">联系</h3>
+                                <h4>一支穿云箭 千军万马来相见</h4>
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <ul class="list-style-two">
+                                            <li><span class="icon flaticon-signs"></span>石家庄市 <br> 中国河北 </li>
+                                            <li><span class="icon flaticon-smartphone"></span> -------  <br> ------- </li>
+                                            <li><span class="icon flaticon-note-1"></span>demoland@qq.com <br>demolandcxz@gmail.com</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="map-section">
+                                            <div class="home-google-map">
+                                                <div 
+                                                    class="google-map" 
+                                                    id="contact-google-map" 
+                                                    data-map-lat="40.700843" 
+                                                    data-map-lng="-74.004012" 
+                                                    data-icon-path="images/icons/map-marker.png"
+                                                    data-map-title="Chester"
+                                                    data-map-zoom="11" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4>我能帮到什么?（暂未开通）</h4>
+                                <!-- Contact Form -->
+                                <div class="contact-form">
+                                    <!--Comment Form-->
+                                    <form method="post" action="sendemail.php" id="contact-form">
+                                        <div class="row clearfix">
+                                            
+                                            <div class="col-md-6 form-group">
+                                                <input type="text" name="username" placeholder="姓名" required>
+                                            </div>
+                                            
+                                            <div class="col-md-6 form-group">
+                                                <input type="email" name="email" placeholder="邮箱" required>
+                                            </div>
+                                            
+                                            <div class="col-md-6 form-group">
+                                                <input type="text" name="subject" placeholder="主题" required>
+                                            </div>
+
+                                            <div class="col-md-6 form-group">
+                                                <input type="text" name="phone" placeholder="电话" required>
+                                            </div>
+
+                                            <div class="col-lg-12 col-md-12 form-group">
+                                                <textarea name="message" placeholder="内容"></textarea>
+                                            </div>
+                                            
+                                            <div class="col-lg-12 col-md-12 form-group">
+                                                <button class="theme-btn btn-style-two" type="submit" name="submit-form">现在提交 </button>
+                                            </div>
+                                            
+                                        </div>
+                                    </form>
+                                        
+                                </div>
+                                <!--End Contact Form -->
+                                        
+                            </div>
+                        </div>
+                        <!-- end item -->
+
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+            
+    </div>
+
+</div>
+<!--End pagewrapper-->
+
+
+<script src="js/jquery.js"></script> 
+
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/owl.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/appear.js"></script>
+<script src="js/jquery.fancybox.js"></script>
+<script src="js/element-in-view.js"></script>
+<script src="js/knob.js"></script>
+<script src="js/validate.js"></script>
+<script src="js/mousemoveparallax.js"></script>
+<script src="js/pagenav.js"></script>
+<script src="js/jquery-type.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/particle-alone.js"></script>
+<script src="js/script.js"></script>
+
+<!--Google Map APi Key-->
+<script src="http://ditu.google.cn/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script>
+<script src="js/gmaps.js"></script>
+<script src="js/map-script.js"></script>
+<!--End Google Map APi-->
+
+</body>
+</html>
